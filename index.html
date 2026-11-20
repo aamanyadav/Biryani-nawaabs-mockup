@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biryani Nawaabs — Royal Taste, Crafted in Lucknow</title>
-<meta name="description" content="Biryani Nawaabs brings authentic Awadhi biryani, kebabs and heritage recipes from the royal kitchens of Lucknow to modern tables across India. Explore the menu or become a franchise partner.">
-<meta name="keywords" content="Biryani Nawaabs, Lucknow biryani, Awadhi biryani, biryani franchise, dum biryani, Galouti kebab">
+<title>Biryani Nawaabs | Authentic Awadhi Biryani from Lucknow</title>
+<meta name="description" content="Authentic Lucknowi dum biryani and Awadhi kebabs from the royal kitchens of Lucknow. Order online, visit an outlet or enquire about a biryani franchise.">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#5B0F19">
-<meta property="og:title" content="Biryani Nawaabs — Royal Taste, Crafted in Lucknow">
+<meta property="og:title" content="Biryani Nawaabs | Authentic Awadhi Biryani from Lucknow">
 <meta property="og:description" content="From the royal kitchens of Lucknow to the world — authentic Awadhi biryani, heritage recipes and franchise opportunities.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.biryaninawaabs.com/">
@@ -25,6 +25,56 @@
 <link rel="apple-touch-icon" sizes="180x180" href="assets/icon-180.png">
 <link rel="preload" as="image" href="assets/hero.jpg" fetchpriority="high">
 <link rel="canonical" href="https://www.biryaninawaabs.com/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.biryaninawaabs.com/#org",
+      "name": "Biryani Nawaabs",
+      "url": "https://www.biryaninawaabs.com/",
+      "logo": "https://www.biryaninawaabs.com/assets/logo.png",
+      "sameAs": [
+        "https://www.instagram.com/biryaninawaabs",
+        "https://www.facebook.com/biryaninawaabs"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Franchise inquiries",
+        "telephone": "+91-522-400-0000",
+        "email": "hello@biryaninawaabs.com"
+      }
+    },
+    {
+      "@type": "Restaurant",
+      "@id": "https://www.biryaninawaabs.com/#flagship",
+      "name": "Biryani Nawaabs — Hazratganj, Lucknow",
+      "image": "https://www.biryaninawaabs.com/assets/hero.jpg",
+      "url": "https://www.biryaninawaabs.com/",
+      "telephone": "+91-522-400-0000",
+      "servesCuisine": ["Awadhi", "Mughlai", "North Indian"],
+      "priceRange": "₹₹",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Hazratganj",
+        "addressLocality": "Lucknow",
+        "addressRegion": "Uttar Pradesh",
+        "postalCode": "226001",
+        "addressCountry": "IN"
+      },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "11:00",
+        "closes": "23:00"
+      }],
+      "hasMenu": "https://www.biryaninawaabs.com/#menu",
+      "parentOrganization": { "@id": "https://www.biryaninawaabs.com/#org" }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -78,8 +128,8 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
   color: var(--gold);
 }
 /* Darker gold on ivory sections: #C89B3C on #F8F3EA is only 2.31:1 */
-.story .eyebrow, .menu .eyebrow, .gallery .eyebrow, .locations .eyebrow{ color:#8A6212; }
-.story :focus-visible, .menu :focus-visible, .gallery :focus-visible, .locations :focus-visible{ outline-color: var(--maroon); }
+.story .eyebrow, .menu .eyebrow, .gallery .eyebrow, .locations .eyebrow, .faq .eyebrow{ color:#8A6212; }
+.story :focus-visible, .menu :focus-visible, .gallery :focus-visible, .locations :focus-visible, .faq :focus-visible{ outline-color: var(--maroon); }
 
 .section-head{
   text-align:center;
@@ -694,6 +744,19 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 .food-mark.nonveg{ border-color:#A3271E; }
 .food-mark.nonveg::after{ background:#A3271E; }
 
+/* FAQ */
+.faq{ padding:110px 0; background:var(--ivory); }
+.faq-list{ max-width:760px; margin:0 auto; }
+.faq-list details{ border:1px solid rgba(200,155,60,.4); border-radius:6px; margin-bottom:12px; background:#fff; }
+.faq-list summary{
+  cursor:pointer; padding:18px 20px;
+  font-family:var(--font-display); font-weight:600;
+  color:var(--maroon); font-size:.98rem;
+}
+.faq-list summary:hover{ background:rgba(200,155,60,.08); }
+.faq-list details[open] summary{ border-bottom:1px solid rgba(200,155,60,.25); }
+.faq-list details p{ padding:16px 20px; font-size:.92rem; color:#4a4038; line-height:1.7; }
+
 .form-status{ display:none; margin-top:12px; padding:10px 13px; border-radius:3px; font-size:.85rem; letter-spacing:0; text-transform:none; }
 .form-status.is-error{ display:block; background:rgba(226,55,68,.14); color:#ffd9d9; border:1px solid rgba(226,55,68,.5); }
 .form-status.is-success{ display:block; background:rgba(14,92,71,.2); color:#bfe8d9; border:1px solid rgba(14,92,71,.6); }
@@ -923,7 +986,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 
   <div class="hero-content wrap">
     <p class="eyebrow hero-eyebrow reveal">From the Royal Kitchens of Lucknow to the World</p>
-    <h1 class="hero-title reveal">Royal Taste.<br>Crafted in Lucknow.<br>Loved Across India.</h1>
+    <h1 class="hero-title reveal">Authentic Awadhi Biryani.<br>Crafted in Lucknow.<br>Loved Across India.</h1>
     <p class="hero-sub reveal">Authentic Awadhi biryani, prepared with centuries-old recipes and modern excellence — one slow-cooked dum at a time.</p>
     <div class="hero-ctas reveal">
       <a href="#order" class="btn btn-primary">Order Now</a>
@@ -1158,7 +1221,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
   <div class="wrap franchise-inner">
     <div class="franchise-copy reveal">
       <p class="eyebrow">Franchise With Us</p>
-      <h2>Own the Royal Taste of Lucknow</h2>
+      <h2>Biryani Franchise in India — Own the Royal Taste of Lucknow</h2>
       <p class="franchise-lede">Bring an 18-year heritage brand to your city, backed end-to-end by the team that built it.</p>
 
       <div class="franchise-grid">
@@ -1305,7 +1368,58 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
     </div>
   </div>
 </section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Questions</p>
+      <h2>Frequently Asked</h2>
+    </div>
+    <div class="faq-list reveal">
+      <details>
+        <summary>What makes Lucknowi (Awadhi) biryani different from Hyderabadi biryani?</summary>
+        <p>Awadhi biryani is cooked dum pukht style — par-cooked basmati rice and marinated meat are layered in a handi, sealed with dough and steamed slowly over a low flame. The result is gentler on spice and more aromatic than the hotter, tangier Hyderabadi style.</p>
+      </details>
+      <details>
+        <summary>How much does a Biryani Nawaabs franchise cost?</summary>
+        <p>Investment depends on the format — cloud kitchen, kiosk or dine-in restaurant. Share your city and budget in the franchise application form and our team will send you the current fee structure, setup cost and payback estimates.</p>
+      </details>
+      <details>
+        <summary>Do you have vegetarian options?</summary>
+        <p>Yes. Our Veg Biryani, Firni and Sheermal are fully vegetarian, and every item on the menu carries a clear veg or non-veg mark.</p>
+      </details>
+      <details>
+        <summary>Can I order Biryani Nawaabs online?</summary>
+        <p>Yes — order through Zomato or Swiggy, message us on WhatsApp, or call the outlet directly. The order buttons in the menu section take you straight there.</p>
+      </details>
+      <details>
+        <summary>Where is the original Biryani Nawaabs outlet?</summary>
+        <p>Our flagship kitchen is in Lucknow, Uttar Pradesh — the home of Awadhi cuisine — with partner outlets across India.</p>
+      </details>
+      <details>
+        <summary>Do you take catering or bulk orders?</summary>
+        <p>We do. For weddings, corporate events and parties, send us a message through the contact form or WhatsApp and we'll plan the menu with you.</p>
+      </details>
+    </div>
+  </div>
+</section>
 </main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What makes Lucknowi (Awadhi) biryani different from Hyderabadi biryani?", "acceptedAnswer": {"@type": "Answer", "text": "Awadhi biryani is cooked dum pukht style — par-cooked basmati rice and marinated meat are layered in a handi, sealed with dough and steamed slowly over a low flame. The result is gentler on spice and more aromatic than the hotter, tangier Hyderabadi style."}},
+    {"@type": "Question", "name": "How much does a Biryani Nawaabs franchise cost?", "acceptedAnswer": {"@type": "Answer", "text": "Investment depends on the format — cloud kitchen, kiosk or dine-in restaurant. Share your city and budget in the franchise application form and our team will send you the current fee structure, setup cost and payback estimates."}},
+    {"@type": "Question", "name": "Do you have vegetarian options?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Our Veg Biryani, Firni and Sheermal are fully vegetarian, and every item on the menu carries a clear veg or non-veg mark."}},
+    {"@type": "Question", "name": "Can I order Biryani Nawaabs online?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — order through Zomato or Swiggy, message us on WhatsApp, or call the outlet directly."}},
+    {"@type": "Question", "name": "Where is the original Biryani Nawaabs outlet?", "acceptedAnswer": {"@type": "Answer", "text": "Our flagship kitchen is in Lucknow, Uttar Pradesh — the home of Awadhi cuisine — with partner outlets across India."}},
+    {"@type": "Question", "name": "Do you take catering or bulk orders?", "acceptedAnswer": {"@type": "Answer", "text": "We do. For weddings, corporate events and parties, send us a message through the contact form or WhatsApp and we'll plan the menu with you."}}
+  ]
+}
+</script>
 
 <!-- ============ CONTACT / FOOTER ============ -->
 <footer class="site-footer" id="contact">
@@ -1335,6 +1449,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
       <a href="#menu">Menu</a>
       <a href="#franchise">Franchise</a>
       <a href="#gallery">Gallery</a>
+      <a href="#faq">FAQ</a>
     </div>
 
     <div class="footer-col">
