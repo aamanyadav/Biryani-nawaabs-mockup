@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Biryani Nawaabs | Authentic Awadhi Biryani from Lucknow</title>
-<meta name="description" content="Authentic Lucknowi dum biryani and Awadhi kebabs from the royal kitchens of Lucknow. Order online, visit an outlet or enquire about a biryani franchise.">
+<meta name="description" content="Authentic Lucknowi dum biryani and Awadhi kebabs, rated 4.7★ by 875+ guests. Visit our Lucknow outlets or enquire about a biryani franchise.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#5B0F19">
 <meta property="og:title" content="Biryani Nawaabs | Authentic Awadhi Biryani from Lucknow">
@@ -36,38 +36,40 @@
       "url": "https://www.biryaninawaabs.com/",
       "logo": "https://www.biryaninawaabs.com/assets/logo.png",
       "sameAs": [
-        "https://www.instagram.com/biryaninawaabs",
-        "https://www.facebook.com/biryaninawaabs"
+        "https://www.instagram.com/biryaninawaabs.india/",
+        "https://maps.app.goo.gl/c1W1wtuquGLPeq1t6"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "Franchise inquiries",
-        "telephone": "+91-522-400-0000",
+        "telephone": "+91-70804-62999",
         "email": "hello@biryaninawaabs.com"
       }
     },
     {
       "@type": "Restaurant",
       "@id": "https://www.biryaninawaabs.com/#flagship",
-      "name": "Biryani Nawaabs — Hazratganj, Lucknow",
-      "image": "https://www.biryaninawaabs.com/assets/hero.jpg",
+      "name": "Biryani Nawaabs in Lucknow",
+      "image": "https://www.biryaninawaabs.com/assets/gallery/facade-day.jpg",
       "url": "https://www.biryaninawaabs.com/",
-      "telephone": "+91-522-400-0000",
+      "telephone": "+91-70804-62999",
       "servesCuisine": ["Awadhi", "Mughlai", "North Indian"],
       "priceRange": "₹₹",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Hazratganj",
+        "streetAddress": "SHOP N-C-1, Kapoorthala Road, Chandralok",
         "addressLocality": "Lucknow",
         "addressRegion": "Uttar Pradesh",
-        "postalCode": "226001",
+        "postalCode": "226024",
         "addressCountry": "IN"
       },
+      "geo": { "@type": "GeoCoordinates", "latitude": 26.8832949, "longitude": 80.9454842 },
+      "hasMap": "https://maps.app.goo.gl/c1W1wtuquGLPeq1t6",
       "openingHoursSpecification": [{
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-        "opens": "11:00",
-        "closes": "23:00"
+        "opens": "11:30",
+        "closes": "23:30"
       }],
       "hasMenu": "https://www.biryaninawaabs.com/#menu",
       "parentOrganization": { "@id": "https://www.biryaninawaabs.com/#org" }
@@ -102,7 +104,7 @@
 }
 
 *{ margin:0; padding:0; box-sizing:border-box; }
-html{ scroll-behavior:smooth; scroll-padding-top:84px; scroll-padding-bottom:84px; }
+html{ scroll-behavior:smooth; scroll-padding-top:124px; scroll-padding-bottom:84px; }
 body{
   font-family: var(--font-body);
   color: var(--charcoal);
@@ -228,7 +230,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 
 /* ============ NAVIGATION ============ */
 .nav{
-  position:fixed; top:0; left:0; right:0; z-index:100;
+  position:fixed; top:40px; left:0; right:0; z-index:100;
   background: transparent;
   transition: background .4s ease, box-shadow .4s ease, padding .4s ease;
   padding: 22px 0;
@@ -401,7 +403,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
     transform: translateX(100%);
     visibility:hidden;
     transition: transform .4s ease, visibility 0s linear .4s;
-    z-index:105;
+    z-index:115;
     display:flex;
   }
   .nav-links.is-open{ transform: translateX(0); visibility:visible; transition: transform .4s ease; }
@@ -624,13 +626,18 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
   background-image: radial-gradient(circle at 20px 20px, rgba(30,30,30,.12) 1.6px, transparent 2px);
   background-size:26px 26px;
 }
+.g-tile img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+}
 .g-tile span{
   position:relative; z-index:1;
   padding:16px;
   font-family:var(--font-display);
   font-size:.92rem;
   color: var(--maroon-deep);
-  background: linear-gradient(0deg, rgba(248,243,234,.92), transparent);
+  background: linear-gradient(0deg, rgba(248,243,234,.92), rgba(248,243,234,0));
   width:100%;
 }
 .g-tile:hover{ box-shadow: 0 16px 34px rgba(91,15,25,.22); }
@@ -678,7 +685,11 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 }
 .loc-card:hover{ border-color:var(--gold); box-shadow:0 10px 26px rgba(91,15,25,.1); transform: translateY(-4px); }
 .loc-card h3{ font-family:var(--font-display); color:var(--maroon); font-size:1.05rem; margin-bottom:6px; }
-.loc-card p{ font-size:.85rem; color:#6b5a4a; }
+.loc-card p{ font-size:.85rem; color:#6b5a4a; margin-bottom:6px; }
+.loc-link{ color:var(--maroon); text-decoration:underline; text-underline-offset:2px; }
+.loc-link:hover{ color:var(--gold); }
+.map-embed{ margin-top:28px; border:1px solid rgba(200,155,60,.35); border-radius:6px; overflow:hidden; }
+.map-embed iframe{ display:block; width:100%; height:360px; border:0; }
 @media (max-width:760px){ .loc-grid{ grid-template-columns:1fr 1fr; } }
 @media (max-width:480px){ .loc-grid{ grid-template-columns:1fr; } }
 
@@ -716,23 +727,49 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 .footer-form textarea{ resize:vertical; }
 .footer-bottom{ border-top:1px solid rgba(200,155,60,.18); padding:22px 0; }
 .footer-bottom p{ font-size:.76rem; color:#9c806a; text-align:center; }
+.footer-bottom a{ color:#d9c2ab; text-decoration:underline; text-underline-offset:2px; }
+.footer-bottom a:hover{ color:var(--gold-light); }
 
 /* ============================================
    ORDER BAR + WORKING FORMS
    ============================================ */
-.order-bar{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin:6px 0 48px; }
-.order-btn{
-  display:inline-flex; align-items:center; justify-content:center; gap:8px;
-  padding:12px 22px; min-height:44px; border-radius:3px;
-  font-weight:600; font-size:.82rem; letter-spacing:.06em; text-transform:uppercase;
+/* Announcement bar (persistent franchise CTA) */
+.announce-bar{
+  position:fixed; top:0; left:0; right:0; z-index:110;
+  display:flex; align-items:center; justify-content:center; gap:16px;
+  min-height:40px; padding:4px 16px;
+  background:var(--maroon-deep);
+  border-bottom:1px solid rgba(200,155,60,.4);
+}
+.announce-bar p{ font-size:.74rem; letter-spacing:.06em; color:var(--gold-light); text-transform:uppercase; }
+.announce-bar p span{ color:var(--gold); margin-right:6px; }
+.announce-cta{
+  flex:none; display:inline-flex; align-items:center;
+  background:var(--gold); color:var(--maroon-deep);
+  padding:5px 14px; border-radius:3px; min-height:30px;
+  font-weight:700; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase;
+  transition:filter .25s ease;
+}
+.announce-cta:hover{ filter:brightness(1.1); }
+@media (max-width:620px){
+  .announce-bar p{ display:none; }
+}
+
+/* Floating review badge */
+.float-badge{
+  position:fixed; left:18px; bottom:18px; z-index:85;
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--ivory); color:var(--charcoal);
+  border:1px solid var(--gold); border-radius:999px;
+  padding:9px 16px; font-size:.78rem; font-weight:500;
+  box-shadow:0 8px 24px rgba(30,30,30,.18);
   transition:transform .25s ease, box-shadow .25s ease;
 }
-.order-btn:hover{ transform:translateY(-2px); box-shadow:0 8px 20px rgba(30,30,30,.18); }
-.order-btn.zomato{ background:#E23744; color:#fff; }
-.order-btn.swiggy{ background:#FC8019; color:#fff; }
-.order-btn.whatsapp{ background:var(--emerald); color:#fff; }
-.order-btn.call{ border:1.5px solid var(--maroon); color:var(--maroon); }
-.sticky-cta-btn.wa{ background:var(--emerald); color:#fff; }
+.float-badge:hover{ transform:translateY(-2px); box-shadow:0 12px 28px rgba(30,30,30,.24); }
+.float-badge strong{ color:var(--maroon); font-weight:700; }
+@media (max-width:640px){
+  .float-badge{ display:none; }
+}
 
 .dish-meta{ display:flex; align-items:center; gap:12px; margin-top:12px; }
 .dish-price{ font-family:var(--font-display); font-weight:600; color:var(--maroon); font-size:1.02rem; }
@@ -944,6 +981,11 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 <body>
 <a href="#main" class="skip-link">Skip to main content</a>
 
+<div class="announce-bar">
+  <p><span aria-hidden="true">✦</span> From the Royal Kitchens of Lucknow — now franchising across India</p>
+  <a href="#franchise-apply" class="announce-cta">Get Franchise</a>
+</div>
+
 <!-- ============ NAVIGATION ============ -->
 <header class="nav" id="siteNav">
   <div class="wrap nav-inner">
@@ -986,10 +1028,10 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 
   <div class="hero-content wrap">
     <p class="eyebrow hero-eyebrow reveal">From the Royal Kitchens of Lucknow to the World</p>
-    <h1 class="hero-title reveal">Authentic Awadhi Biryani.<br>Crafted in Lucknow.<br>Loved Across India.</h1>
+    <h1 class="hero-title reveal">Royal Taste.<br>Crafted in Lucknow.<br>Loved Across India.</h1>
     <p class="hero-sub reveal">Authentic Awadhi biryani, prepared with centuries-old recipes and modern excellence — one slow-cooked dum at a time.</p>
     <div class="hero-ctas reveal">
-      <a href="#order" class="btn btn-primary">Order Now</a>
+      <a href="#menu" class="btn btn-primary">Explore Menu</a>
       <a href="#franchise" class="btn btn-outline">Become a Franchise</a>
     </div>
   </div>
@@ -1125,10 +1167,10 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
     </div>
 
     <div class="stats">
-      <div class="stat"><span class="stat-num" data-target="18">18</span><span class="stat-suffix">+</span><p>Years of Heritage</p></div>
-      <div class="stat"><span class="stat-num" data-target="45">45</span><span class="stat-suffix">+</span><p>Outlets Nationwide</p></div>
-      <div class="stat"><span class="stat-num" data-target="20">20</span><span class="stat-suffix">+</span><p>Cities Served</p></div>
-      <div class="stat"><span class="stat-num" data-target="2">2</span><span class="stat-suffix">M+</span><p>Biryanis Served</p></div>
+      <div class="stat"><span class="stat-num" data-target="4.7">4.7</span><span class="stat-suffix">★</span><p>Google Rating</p></div>
+      <div class="stat"><span class="stat-num" data-target="875">875</span><span class="stat-suffix">+</span><p>Verified Google Reviews</p></div>
+      <div class="stat"><span class="stat-num" data-target="2">2</span><span class="stat-suffix"></span><p>Outlets in Lucknow</p></div>
+      <div class="stat"><span class="stat-num" data-target="30">30</span><span class="stat-suffix">+</span><p>Dishes on the Menu</p></div>
     </div>
   </div>
 </section>
@@ -1142,13 +1184,6 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
       <p>Seven dishes. Zero shortcuts.</p>
     </div>
 
-    <div class="order-bar reveal" id="order">
-      <a href="https://www.zomato.com/" class="order-btn zomato" target="_blank" rel="noopener">Order on Zomato</a>
-      <a href="https://www.swiggy.com/" class="order-btn swiggy" target="_blank" rel="noopener">Order on Swiggy</a>
-      <a href="https://wa.me/915224000000?text=Hi%20Biryani%20Nawaabs%2C%20I%27d%20like%20to%20place%20an%20order." class="order-btn whatsapp" target="_blank" rel="noopener">Order on WhatsApp</a>
-      <a href="tel:+915224000000" class="order-btn call">Call to Order</a>
-    </div>
-
     <div class="menu-grid">
 
       <article class="dish-card dish-large reveal">
@@ -1160,7 +1195,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
           <span class="dish-tag">Chef&rsquo;s Pick</span>
           <h3>Galouti Kebab</h3>
           <p>Melt-in-the-mouth minced kebabs, pounded with over a dozen secret spices.</p>
-          <div class="dish-meta"><span class="food-mark nonveg" role="img" aria-label="Non-vegetarian"></span><span class="dish-price">₹329</span><span class="dish-serves">6 pieces</span></div>
+          <div class="dish-meta"><span class="food-mark nonveg" role="img" aria-label="Non-vegetarian"></span><span class="dish-price">₹169–299</span><span class="dish-serves">2 / 4 pieces</span></div>
         </div>
       </article>
 
@@ -1169,7 +1204,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
           <svg aria-hidden="true" focusable="false" viewBox="0 0 120 120" class="dish-illustration"><ellipse cx="60" cy="72" rx="40" ry="13" fill="var(--gold)" opacity=".5"/><circle cx="60" cy="58" r="30" fill="var(--sand)" opacity=".3"/></svg>
         </div>
         <div class="dish-info"><span class="dish-tag">Bestseller</span><h3>Chicken Biryani</h3><p>Long-grain basmati, dum-sealed with tender chicken.</p>
-          <div class="dish-meta"><span class="food-mark nonveg" role="img" aria-label="Non-vegetarian"></span><span class="dish-price">₹349</span><span class="dish-serves">Serves 1–2</span></div></div>
+          <div class="dish-meta"><span class="food-mark nonveg" role="img" aria-label="Non-vegetarian"></span><span class="dish-price">₹299–499</span><span class="dish-serves">Half / Full</span></div></div>
       </article>
 
       <article class="dish-card reveal">
@@ -1177,7 +1212,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
           <svg aria-hidden="true" focusable="false" viewBox="0 0 120 120" class="dish-illustration"><ellipse cx="60" cy="72" rx="40" ry="13" fill="var(--gold)" opacity=".5"/><circle cx="60" cy="58" r="30" fill="var(--emerald)" opacity=".22"/></svg>
         </div>
         <div class="dish-info"><span class="dish-tag">Royal Classic</span><h3>Mutton Biryani</h3><p>Slow-cooked mutton, rich with a royal masala legacy.</p>
-          <div class="dish-meta"><span class="food-mark nonveg" role="img" aria-label="Non-vegetarian"></span><span class="dish-price">₹449</span><span class="dish-serves">Serves 1–2</span></div></div>
+          <div class="dish-meta"><span class="food-mark nonveg" role="img" aria-label="Non-vegetarian"></span><span class="dish-price">₹349–599</span><span class="dish-serves">Half / Full</span></div></div>
       </article>
 
       <article class="dish-card reveal">
@@ -1193,7 +1228,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
           <svg aria-hidden="true" focusable="false" viewBox="0 0 120 120" class="dish-illustration"><ellipse cx="60" cy="72" rx="38" ry="12" fill="var(--gold)" opacity=".5"/><rect x="34" y="46" width="52" height="18" rx="9" fill="var(--sand)" opacity=".35"/></svg>
         </div>
         <div class="dish-info"><span class="dish-tag">Heritage</span><h3>Kakori Kebab</h3><p>Silken seekh kebabs, a Lucknawi classic since the 1900s.</p>
-          <div class="dish-meta"><span class="food-mark nonveg" role="img" aria-label="Non-vegetarian"></span><span class="dish-price">₹399</span><span class="dish-serves">4 pieces</span></div></div>
+          <div class="dish-meta"><span class="food-mark nonveg" role="img" aria-label="Non-vegetarian"></span><span class="dish-price">₹489</span><span class="dish-serves">4 pieces</span></div></div>
       </article>
 
       <article class="dish-card reveal">
@@ -1222,7 +1257,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
     <div class="franchise-copy reveal">
       <p class="eyebrow">Franchise With Us</p>
       <h2>Biryani Franchise in India — Own the Royal Taste of Lucknow</h2>
-      <p class="franchise-lede">Bring an 18-year heritage brand to your city, backed end-to-end by the team that built it.</p>
+      <p class="franchise-lede">Bring Lucknow&rsquo;s 4.7★-rated biryani house to your city, backed end-to-end by the team that built it.</p>
 
       <div class="franchise-grid">
         <div><h3>Starting Investment</h3><p>Transparent, tiered by outlet format</p></div>
@@ -1240,8 +1275,8 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
       <div class="franchise-arch">
         <svg aria-hidden="true" focusable="false" viewBox="0 0 200 240"><path d="M4 236V90C4 40 45 4 100 4s96 36 96 86v146" stroke="var(--gold)" stroke-width="2" fill="none"/><path d="M4 236V90C4 40 45 4 100 4s96 36 96 86v146" stroke="var(--gold)" stroke-width="2" fill="none" transform="translate(0,0) scale(0.86)" opacity=".5" style="transform-origin:100px 236px"/></svg>
         <div class="franchise-quote">
-          <p>“We didn't just license a name — we inherited a kitchen's worth of trust.”</p>
-          <span>— Franchise Partner, Pune</span>
+          <p>“Food, service, staff, atmosphere — all are so good.”</p>
+          <span>— Guest review on Google</span>
         </div>
       </div>
     </div>
@@ -1311,12 +1346,12 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
       <h2>Photos & Moments</h2>
     </div>
     <div class="gallery-grid">
-      <div class="g-tile reveal g-tall"><span>Dum Sealing Ritual</span></div>
-      <div class="g-tile reveal"><span>The Dining Hall</span></div>
-      <div class="g-tile reveal"><span>Spice Table</span></div>
-      <div class="g-tile reveal"><span>Copper Handi Service</span></div>
-      <div class="g-tile reveal g-tall"><span>Saffron &amp; Spice Table</span></div>
-      <div class="g-tile reveal"><span>Chef at Work</span></div>
+      <div class="g-tile reveal g-tall"><img src="assets/gallery/dining-hall.jpg" alt="Dining hall with chandeliers and golden jaali arches" width="900" height="1200" loading="lazy"><span>The Dining Hall</span></div>
+      <div class="g-tile reveal"><img src="assets/gallery/facade-day.jpg" alt="Biryani Nawaabs facade on Kapoorthala Road with Mughal arch entrance" width="1000" height="667" loading="lazy"><span>Kapoorthala Road Facade</span></div>
+      <div class="g-tile reveal"><img src="assets/gallery/mutton-biryani.jpg" alt="Mutton dum biryani served in a hammered copper handi" width="1000" height="529" loading="lazy"><span>Mutton Dum Biryani</span></div>
+      <div class="g-tile reveal"><img src="assets/gallery/brass-thali.jpg" alt="Brass thali place settings under golden arches in the dining room" width="1000" height="666" loading="lazy"><span>Brass Thali Service</span></div>
+      <div class="g-tile reveal g-tall"><img src="assets/gallery/facade-night.jpg" alt="Biryani Nawaabs storefront glowing at night" width="840" height="1200" loading="lazy"><span>Evenings at Nawaabs</span></div>
+      <div class="g-tile reveal"><img src="assets/gallery/veg-biryani.jpg" alt="Veg dum biryani bowl garnished with cashew, star anise and coriander" width="900" height="900" loading="lazy"><span>Veg Dum Biryani</span></div>
     </div>
   </div>
 </section>
@@ -1327,19 +1362,20 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
     <div class="section-head reveal">
       <p class="eyebrow">Customer Reviews</p>
       <h2>Loved Across Tables</h2>
+      <p>Rated 4.7★ by 875+ guests on Google</p>
     </div>
     <div class="tslider" id="tSlider" role="region" aria-roledescription="carousel" aria-label="Customer testimonials">
       <div class="tslide is-active">
-        <p>“The dum biryani tastes exactly like what my grandmother used to describe from Old Lucknow. Genuinely royal.”</p>
-        <span>— Ananya R., Delhi</span>
+        <p>“Really enjoyed the food. Thank you for the great service, Mr&nbsp;Farhan! Lovely ambience too.”</p>
+        <span>— Aida, Google review</span>
       </div>
       <div class="tslide">
-        <p>“Galouti kebabs that melt before you even chew. This is the most authentic Awadhi food I've had outside Lucknow.”</p>
-        <span>— Farhan M., Mumbai</span>
+        <p>“The biryani is rich and full of flavor, and the tandoori dishes are equally tasty. A great spot for a fulfilling meal!”</p>
+        <span>— Drogo, Local Guide on Google</span>
       </div>
       <div class="tslide">
-        <p>“Franchising with Biryani Nawaabs was the best decision — the support team is with you at every single step.”</p>
-        <span>— Karan S., Franchise Partner</span>
+        <p>“The flavours were well-balanced, and every bite was satisfying. Great taste and good value for money.”</p>
+        <span>— Vikas Jaiswal, Google review</span>
       </div>
     </div>
     <div class="tctrl">
@@ -1359,12 +1395,25 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
       <h2>Outlets Across India</h2>
     </div>
     <div class="loc-grid">
-      <div class="loc-card reveal"><h3>Lucknow</h3><p>Hazratganj · Gomti Nagar · Aliganj</p></div>
-      <div class="loc-card reveal"><h3>Delhi NCR</h3><p>Connaught Place · Noida · Gurugram</p></div>
-      <div class="loc-card reveal"><h3>Mumbai</h3><p>Andheri · Bandra · Powai</p></div>
-      <div class="loc-card reveal"><h3>Bengaluru</h3><p>Indiranagar · Koramangala</p></div>
-      <div class="loc-card reveal"><h3>Pune</h3><p>Kothrud · Viman Nagar</p></div>
-      <div class="loc-card reveal"><h3>+ 15 Cities</h3><p>Growing every quarter — <a href="#franchise-apply" style="color:var(--maroon); text-decoration:underline;">join the map</a></p></div>
+      <div class="loc-card reveal">
+        <h3>Kapoorthala — Flagship</h3>
+        <p>SHOP N-C-1, Kapoorthala Road, Chandralok, Lucknow, Uttar Pradesh 226024</p>
+        <p>Open daily · 11:30 AM – 11:30 PM</p>
+        <p><a href="tel:+917080462999" class="loc-link">+91 70804 62999</a> · <a href="https://maps.app.goo.gl/c1W1wtuquGLPeq1t6" class="loc-link" target="_blank" rel="noopener">Get directions</a></p>
+      </div>
+      <div class="loc-card reveal">
+        <h3>Ashiyana</h3>
+        <p>Ambika Vihar Road, Ashiyana, Lucknow</p>
+        <p>Open daily from 12:00 PM</p>
+      </div>
+      <div class="loc-card reveal">
+        <h3>Your City Next?</h3>
+        <p>We&rsquo;re expanding across India through franchise partners.</p>
+        <p><a href="#franchise-apply" class="loc-link">Apply for a franchise</a></p>
+      </div>
+    </div>
+    <div class="map-embed reveal">
+      <iframe src="https://www.google.com/maps?q=Biryani%20Nawaabs%20Kapoorthala%20Road%20Lucknow&output=embed" title="Biryani Nawaabs flagship outlet on Google Maps" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </section>
@@ -1390,12 +1439,12 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
         <p>Yes. Our Veg Biryani, Firni and Sheermal are fully vegetarian, and every item on the menu carries a clear veg or non-veg mark.</p>
       </details>
       <details>
-        <summary>Can I order Biryani Nawaabs online?</summary>
-        <p>Yes — order through Zomato or Swiggy, message us on WhatsApp, or call the outlet directly. The order buttons in the menu section take you straight there.</p>
+        <summary>Can I order Biryani Nawaabs for takeaway or delivery?</summary>
+        <p>Yes — dine in, take away or get it delivered. Call us on +91 70804 62999 or message us on WhatsApp and we&rsquo;ll take your order.</p>
       </details>
       <details>
         <summary>Where is the original Biryani Nawaabs outlet?</summary>
-        <p>Our flagship kitchen is in Lucknow, Uttar Pradesh — the home of Awadhi cuisine — with partner outlets across India.</p>
+        <p>Our flagship is at SHOP N-C-1, Kapoorthala Road, Chandralok, Lucknow — the home of Awadhi cuisine — with a second outlet in Ashiyana and more cities coming through franchise partners.</p>
       </details>
       <details>
         <summary>Do you take catering or bulk orders?</summary>
@@ -1414,8 +1463,8 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
     {"@type": "Question", "name": "What makes Lucknowi (Awadhi) biryani different from Hyderabadi biryani?", "acceptedAnswer": {"@type": "Answer", "text": "Awadhi biryani is cooked dum pukht style — par-cooked basmati rice and marinated meat are layered in a handi, sealed with dough and steamed slowly over a low flame. The result is gentler on spice and more aromatic than the hotter, tangier Hyderabadi style."}},
     {"@type": "Question", "name": "How much does a Biryani Nawaabs franchise cost?", "acceptedAnswer": {"@type": "Answer", "text": "Investment depends on the format — cloud kitchen, kiosk or dine-in restaurant. Share your city and budget in the franchise application form and our team will send you the current fee structure, setup cost and payback estimates."}},
     {"@type": "Question", "name": "Do you have vegetarian options?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Our Veg Biryani, Firni and Sheermal are fully vegetarian, and every item on the menu carries a clear veg or non-veg mark."}},
-    {"@type": "Question", "name": "Can I order Biryani Nawaabs online?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — order through Zomato or Swiggy, message us on WhatsApp, or call the outlet directly."}},
-    {"@type": "Question", "name": "Where is the original Biryani Nawaabs outlet?", "acceptedAnswer": {"@type": "Answer", "text": "Our flagship kitchen is in Lucknow, Uttar Pradesh — the home of Awadhi cuisine — with partner outlets across India."}},
+    {"@type": "Question", "name": "Can I order Biryani Nawaabs for takeaway or delivery?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — dine in, take away or get it delivered. Call us on +91 70804 62999 or message us on WhatsApp and we'll take your order."}},
+    {"@type": "Question", "name": "Where is the original Biryani Nawaabs outlet?", "acceptedAnswer": {"@type": "Answer", "text": "Our flagship is at SHOP N-C-1, Kapoorthala Road, Chandralok, Lucknow — the home of Awadhi cuisine — with a second outlet in Ashiyana and more cities coming through franchise partners."}},
     {"@type": "Question", "name": "Do you take catering or bulk orders?", "acceptedAnswer": {"@type": "Answer", "text": "We do. For weddings, corporate events and parties, send us a message through the contact form or WhatsApp and we'll plan the menu with you."}}
   ]
 }
@@ -1431,15 +1480,15 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
       </a>
       <p>From the royal kitchens of Lucknow to the world.</p>
       <address class="footer-nap">
-        <a href="tel:+915224000000">+91 522 400 0000</a>
+        <a href="tel:+917080462999">+91 70804 62999</a>
         <a href="mailto:hello@biryaninawaabs.com">hello@biryaninawaabs.com</a>
-        <span>Hazratganj, Lucknow, Uttar Pradesh</span>
-        <span>Open daily, 11:00 AM – 11:00 PM</span>
+        <span>SHOP N-C-1, Kapoorthala Road, Chandralok, Lucknow 226024</span>
+        <span>Open daily, 11:30 AM – 11:30 PM</span>
       </address>
       <div class="footer-social">
-        <a href="https://www.instagram.com/biryaninawaabs" target="_blank" rel="noopener" aria-label="IG — Instagram">IG</a>
+        <a href="https://www.instagram.com/biryaninawaabs.india/" target="_blank" rel="noopener" aria-label="IG — Instagram">IG</a>
         <a href="https://www.facebook.com/biryaninawaabs" target="_blank" rel="noopener" aria-label="FB — Facebook">FB</a>
-        <a href="https://wa.me/915224000000" target="_blank" rel="noopener" aria-label="WA — WhatsApp">WA</a>
+        <a href="https://wa.me/917080462999" target="_blank" rel="noopener" aria-label="WA — WhatsApp">WA</a>
       </div>
     </div>
 
@@ -1479,15 +1528,16 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="wrap"><p>© 2026 Biryani Nawaabs. All rights reserved. · FSSAI Lic. No. 00000000000000</p></div>
+    <div class="wrap"><p>© 2026 Biryani Nawaabs. All rights reserved. · FSSAI Lic. No. 00000000000000 · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms &amp; Conditions</a></p></div>
   </div>
 </footer>
 
+<a class="float-badge" href="https://maps.app.goo.gl/c1W1wtuquGLPeq1t6" target="_blank" rel="noopener" aria-label="4.7 stars, 875+ Google reviews — open our Google profile"><strong>4.7★</strong> 875+ Google Reviews</a>
+
 <!-- ============ STICKY MOBILE CTA ============ -->
 <div class="sticky-cta" id="stickyCta">
-  <a href="#order" class="sticky-cta-btn primary">Order</a>
-  <a href="tel:+915224000000" class="sticky-cta-btn outline">Call</a>
-  <a href="https://wa.me/915224000000?text=Hi%20Biryani%20Nawaabs%2C%20I%27d%20like%20to%20place%20an%20order." class="sticky-cta-btn wa" target="_blank" rel="noopener">WhatsApp</a>
+  <a href="#menu" class="sticky-cta-btn primary">Explore Menu</a>
+  <a href="#franchise" class="sticky-cta-btn outline">Become a Franchise</a>
 </div>
 
 <script>
@@ -1572,17 +1622,18 @@ const statObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting){
       const el = entry.target;
-      const target = parseInt(el.dataset.target, 10);
+      const target = parseFloat(el.dataset.target);
+      const decimals = (el.dataset.target.split('.')[1] || '').length;
       if (prefersReducedMotion.matches){
-        el.textContent = target;
+        el.textContent = el.dataset.target;
         statObserver.unobserve(el);
         return;
       }
       let cur = 0;
-      const step = Math.max(1, Math.ceil(target/50));
+      const step = Math.max(target/50, Math.pow(10, -decimals));
       const tick = () => {
         cur = Math.min(target, cur+step);
-        el.textContent = cur;
+        el.textContent = cur.toFixed(decimals);
         if (cur < target) requestAnimationFrame(tick);
       };
       tick();

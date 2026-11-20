@@ -1,70 +1,49 @@
-# Go-Live Checklist — Placeholder Values to Replace
+# Go-Live Checklist
 
-Every item below is a **placeholder** currently shipped in the site. Replace each
-with the real value before (or right after) launch. Search `index.html` for the
-quoted strings.
+Much of the site now uses **real data from the Biryani Nawaabs Google Business
+Profile** (fetched 21 Nov 2026). This file tracks what is real, what is still a
+placeholder, and what the owner must confirm. Search `index.html` for the quoted
+strings.
 
-## 1. Contact details (highest priority)
+## Now REAL (sourced from the Google profile — keep in sync with it)
+
+- Phone / WhatsApp number: `+91 70804 62999` (`tel:+917080462999`, `wa.me/917080462999`)
+- Flagship address: SHOP N-C-1, Kapoorthala Road, Chandralok, Lucknow, UP 226024
+- Hours: daily 11:30 AM – 11:30 PM
+- Rating/stats: 4.7★, 875+ Google reviews, 2 outlets, menu with 30+ dishes
+- Gallery photos (assets/gallery/): facade day/night, dining hall, brass thali,
+  veg & mutton biryani — taken from the profile's photo gallery
+- Testimonials: real Google reviews by Aida, Drogo, Vikas Jaiswal
+- Menu prices for Galouti Kebab (₹169–299), Chicken Biryani (₹299–499),
+  Mutton Biryani (₹349–599), Kakori Kebab (₹489) — from the photographed menu card
+- Locations section + embedded Google map; "Get directions" uses the owner's
+  own share link (https://maps.app.goo.gl/c1W1wtuquGLPeq1t6)
+
+## Still PLACEHOLDER — owner must supply
 
 | Placeholder | Where | Replace with |
 |---|---|---|
-| `+915224000000` / `+91 522 400 0000` | Order bar "Call to Order", sticky bar "Call", footer, JSON-LD | Real phone number |
-| `wa.me/915224000000` | Order bar, sticky bar, footer WhatsApp icon | Real WhatsApp business number |
-| `hello@biryaninawaabs.com` | Footer, JSON-LD contactPoint | Real email |
-| `careers@biryaninawaabs.com` | Footer Careers link | Real careers email (or remove) |
-| `Hazratganj, Lucknow, Uttar Pradesh` + `226001` | Footer address, JSON-LD | Real flagship address |
-| `Open daily, 11:00 AM – 11:00 PM` + JSON-LD `11:00`/`23:00` | Footer, JSON-LD | Real hours |
+| `YOUR_WEB3FORMS_ACCESS_KEY` (×2) | contact + franchise forms | Free key from <https://web3forms.com> with the destination inbox. Until set, forms show a "call or WhatsApp us" fallback. |
+| `hello@biryaninawaabs.com` / `careers@` | footer, JSON-LD, Careers link | Real email addresses |
+| `facebook.com/biryaninawaabs` | footer | Confirm the handle or remove — Instagram is now the real one (instagram.com/biryaninawaabs.india) |
+| Veg Biryani ₹249, Firni ₹129, Sheermal ₹79 | menu cards | Real prices (menu card page 2 wasn't in the photos) |
+| `FSSAI Lic. No. 00000000000000` | footer | Real licence number (mandatory) |
+| Ashiyana outlet details | locations card | Exact address + closing time ("opens 12 PM" is all Google shows) |
+| Hero illustration | assets/hero.jpg + og:image | Owner-approved (from concept doc); swap only if a real 1200×630 brand photo is preferred for shares |
 
-## 2. Forms (every inquiry is lost until this is done)
+## Owner must verify
 
-- `YOUR_WEB3FORMS_ACCESS_KEY` appears **twice** (contact form + franchise form).
-  Create a free key at <https://web3forms.com> with the email that should receive
-  inquiries, and paste it into both hidden `access_key` inputs. Until then the
-  forms show a polite "call or WhatsApp us" fallback instead of submitting.
+- WhatsApp: confirm +91 70804 62999 is on WhatsApp Business (the wa.me links assume it).
+- The stats refresh over time — update 875+/4.7★ when they change meaningfully.
+- Canonical domain https://www.biryaninawaabs.com/ — confirm ownership; the
+  Google Business Profile currently lists **no website**, so add this site to the
+  profile once it is live (huge local-SEO win).
+- Menu dish list: concept doc says the full menu content "we will share" — swap
+  in the shared menu + photos when provided.
 
-## 3. Ordering links
+## Design decisions locked by the owner's concept doc (do not undo)
 
-- `https://www.zomato.com/` → the outlet's real Zomato page URL.
-- `https://www.swiggy.com/` → the outlet's real Swiggy page URL.
-
-## 4. Social profiles
-
-- `https://www.instagram.com/biryaninawaabs` and
-  `https://www.facebook.com/biryaninawaabs` — confirm these handles exist or
-  update them (footer icons + JSON-LD `sameAs`).
-
-## 5. Claims that must be verified or changed (legal/trust risk)
-
-- Stats: **18+ years, 45+ outlets, 20+ cities, 2M+ biryanis** (Why-Choose section).
-- "18-year heritage brand" in the franchise lede.
-- Testimonials: Ananya R., Farhan M., Karan S., and the anonymous
-  "Franchise Partner, Pune" quote — replace with real, permissioned reviews.
-- Location cards: Lucknow, Delhi NCR, Mumbai, Bengaluru, Pune neighbourhoods —
-  keep only real outlets.
-- Menu prices (₹329 / ₹349 / ₹449 / ₹249 / ₹399 / ₹129 / ₹79) and portions —
-  set real prices.
-- `FSSAI Lic. No. 00000000000000` in the footer — real licence number (mandatory).
-
-## 6. Domain & hosting
-
-- Canonical/OG/schema URLs assume **https://www.biryaninawaabs.com/**. Confirm the
-  domain is owned; for GitHub Pages add a `CNAME` file, enforce HTTPS, redirect
-  non-www → www, then verify in Google Search Console and submit `sitemap.xml`.
-- If launching on a different domain, update: canonical, og:url, og:image,
-  twitter:image, both JSON-LD blocks, robots.txt and sitemap.xml.
-
-## 7. Real photography (replaces illustrations)
-
-- Hero (`assets/hero.jpg`) is an illustration — also used as the og share image.
-- Dish cards use decorative SVGs; gallery tiles are text-only.
-- Recommended shoot list: handi being unsealed (steam), dum-sealed pot, kebabs,
-  dining hall, kitchen team, packaging.
-
-## Deferred (tracked as future work, not placeholders)
-
-- Privacy Policy + Terms pages (required once forms collect data — DPDP Act).
-- Franchise economics table (investment/fee/royalty by format) — needs owner numbers.
-- Google Maps embed — needs the real address.
-- Separate `/franchise`, `/menu`, `/locations` pages for SEO.
-- GA4 / Meta Pixel with click + lead events.
-- Self-hosted, subset fonts.
+- Single-page site; nav anchors only (no separate menu page).
+- Hero = the royal illustration; H1 = "Royal Taste. Crafted in Lucknow. Loved Across India."
+- Hero buttons = Explore Menu + Become a Franchise. **No "Order Now" button anywhere.**
+- Royal Maroon / Antique Gold / Ivory palette; Cinzel + Cormorant Garamond + Poppins.
