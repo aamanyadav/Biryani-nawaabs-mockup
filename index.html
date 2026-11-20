@@ -77,6 +77,9 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
   text-transform:uppercase;
   color: var(--gold);
 }
+/* Darker gold on ivory sections: #C89B3C on #F8F3EA is only 2.31:1 */
+.story .eyebrow, .menu .eyebrow, .gallery .eyebrow, .locations .eyebrow{ color:#8A6212; }
+.story :focus-visible, .menu :focus-visible, .gallery :focus-visible, .locations :focus-visible{ outline-color: var(--maroon); }
 
 .section-head{
   text-align:center;
@@ -167,9 +170,11 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 }
 
 @media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
   .reveal{ opacity:1; transform:none; transition:none; }
-  *{ animation-duration:.001s !important; animation-iteration-count:1 !important; }
+  *{ animation-duration:.001s !important; animation-iteration-count:1 !important; transition-duration:.001s !important; }
 }
+.hero-media.is-paused *{ animation-play-state:paused !important; }
 
 /* ============ NAVIGATION ============ */
 .nav{
@@ -230,6 +235,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 .hero{
   position:relative;
   height:100vh;
+  height:100svh;
   min-height:640px;
   overflow:hidden;
   display:flex;
@@ -343,11 +349,12 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
     gap:26px;
     padding:32px;
     transform: translateX(100%);
-    transition: transform .4s ease;
+    visibility:hidden;
+    transition: transform .4s ease, visibility 0s linear .4s;
     z-index:105;
     display:flex;
   }
-  .nav-links.is-open{ transform: translateX(0); }
+  .nav-links.is-open{ transform: translateX(0); visibility:visible; transition: transform .4s ease; }
   .nav-links a{ font-size:1.05rem; }
   .nav-toggle{ display:flex; }
   .hero-scroll-cue{ display:none; }
@@ -524,7 +531,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
   gap:26px 30px;
   margin-top:44px;
 }
-.franchise-grid h4{ font-family:var(--font-body); color:var(--gold-light); font-size:.88rem; font-weight:600; letter-spacing:.03em; }
+.franchise-grid h3{ font-family:var(--font-body); color:var(--gold-light); font-size:.88rem; font-weight:600; letter-spacing:.03em; }
 .franchise-grid p{ color:#cbb39e; font-size:.82rem; margin-top:4px; }
 
 .franchise-visual{ display:flex; justify-content:center; }
@@ -560,7 +567,6 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
   background: linear-gradient(150deg, var(--sand), var(--gold));
   overflow:hidden;
   display:flex; align-items:flex-end;
-  cursor:pointer;
 }
 .g-tile::before{
   content:'';
@@ -574,13 +580,9 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
   font-family:var(--font-display);
   font-size:.92rem;
   color: var(--maroon-deep);
-  background: linear-gradient(0deg, rgba(248,243,234,.85), transparent);
+  background: linear-gradient(0deg, rgba(248,243,234,.92), transparent);
   width:100%;
-  transform: translateY(60%);
-  opacity:0;
-  transition: transform .35s ease, opacity .35s ease;
 }
-.g-tile:hover span{ transform:translateY(0); opacity:1; }
 .g-tile:hover{ box-shadow: 0 16px 34px rgba(91,15,25,.22); }
 
 @media (max-width:760px){
@@ -591,19 +593,29 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 .testimonials{ padding:110px 0; background: var(--maroon); text-align:center; }
 .testimonials .eyebrow{ color: var(--gold-light); }
 .testimonials h2{ color: var(--ivory); }
-.tslider{ max-width:640px; margin:50px auto 0; position:relative; min-height:140px; }
+.tslider{ max-width:640px; margin:50px auto 0; display:grid; }
 .tslide{
-  position:absolute; inset:0;
-  opacity:0; transform: translateY(10px);
-  transition: opacity .6s ease, transform .6s ease;
+  grid-area:1/1;
+  opacity:0; transform: translateY(10px); visibility:hidden;
+  transition: opacity .6s ease, transform .6s ease, visibility 0s linear .6s;
   pointer-events:none;
 }
-.tslide.is-active{ opacity:1; transform:none; pointer-events:auto; }
+.tslide.is-active{ opacity:1; transform:none; visibility:visible; transition: opacity .6s ease, transform .6s ease; pointer-events:auto; }
 .tslide p{ font-family: var(--font-script); font-style:italic; font-size:1.5rem; color: var(--ivory); line-height:1.5; }
 .tslide span{ display:block; margin-top:20px; color:var(--gold); font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; }
-.tdots{ display:flex; justify-content:center; gap:10px; margin-top:36px; }
-.tdots button{ width:8px; height:8px; border-radius:50%; background: rgba(232,199,126,.35); }
-.tdots button.is-active{ background: var(--gold); }
+.tctrl{ display:flex; justify-content:center; align-items:center; gap:8px; margin-top:28px; }
+.tctrl > button{
+  min-width:44px; min-height:44px;
+  display:inline-flex; align-items:center; justify-content:center;
+  color:var(--gold-light); font-size:1.05rem;
+  border:1px solid rgba(200,155,60,.4); border-radius:50%;
+  transition: background .3s ease;
+}
+.tctrl > button:hover{ background:rgba(200,155,60,.15); }
+.tdots{ display:flex; justify-content:center; gap:4px; }
+.tdots button{ width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+.tdots button::before{ content:""; width:9px; height:9px; border-radius:50%; background:rgba(248,243,234,.6); transition: background .3s ease, transform .3s ease; }
+.tdots button.is-active::before{ background: var(--gold); transform:scale(1.3); }
 
 /* ============ LOCATIONS ============ */
 .locations{ padding:110px 0; background: var(--ivory); }
@@ -615,7 +627,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
   transition: box-shadow .3s ease, transform .3s ease, border-color .3s ease;
 }
 .loc-card:hover{ border-color:var(--gold); box-shadow:0 10px 26px rgba(91,15,25,.1); transform: translateY(-4px); }
-.loc-card h4{ font-family:var(--font-display); color:var(--maroon); font-size:1.05rem; margin-bottom:6px; }
+.loc-card h3{ font-family:var(--font-display); color:var(--maroon); font-size:1.05rem; margin-bottom:6px; }
 .loc-card p{ font-size:.85rem; color:#6b5a4a; }
 @media (max-width:760px){ .loc-grid{ grid-template-columns:1fr 1fr; } }
 @media (max-width:480px){ .loc-grid{ grid-template-columns:1fr; } }
@@ -641,16 +653,16 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
   transition: background .3s ease, transform .3s ease;
 }
 .footer-social a:hover{ background: rgba(200,155,60,.15); transform: translateY(-3px); }
-.footer-col h5{ font-family:var(--font-display); color:var(--gold-light); font-size:.85rem; letter-spacing:.05em; text-transform:uppercase; margin-bottom:18px; }
+.footer-col h3{ font-family:var(--font-display); color:var(--gold-light); font-size:.85rem; letter-spacing:.05em; text-transform:uppercase; margin-bottom:18px; }
 .footer-col a{ display:block; font-size:.88rem; color:#d9c2ab; margin-bottom:11px; transition:color .2s ease; }
 .footer-col a:hover{ color: var(--gold-light); }
 .footer-form input, .footer-form textarea{
   width:100%; margin-bottom:12px; padding:11px 13px;
   background: rgba(248,243,234,.06);
-  border:1px solid rgba(200,155,60,.3);
+  border:1px solid rgba(200,155,60,.55);
   border-radius:3px; color: var(--ivory); font-family:inherit; font-size:.85rem;
 }
-.footer-form input::placeholder, .footer-form textarea::placeholder{ color:#a5876f; }
+.footer-form input::placeholder, .footer-form textarea::placeholder{ color:#b89c85; }
 .footer-form textarea{ resize:vertical; }
 .footer-bottom{ border-top:1px solid rgba(200,155,60,.18); padding:22px 0; }
 .footer-bottom p{ font-size:.76rem; color:#9c806a; text-align:center; }
@@ -701,7 +713,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 .franchise-form input, .franchise-form select, .franchise-form textarea{
   width:100%; padding:11px 13px;
   background:rgba(248,243,234,.06);
-  border:1px solid rgba(200,155,60,.3); border-radius:3px;
+  border:1px solid rgba(200,155,60,.55); border-radius:3px;
   color:var(--ivory); font-family:inherit; font-size:.88rem;
 }
 .franchise-form select option{ color:var(--charcoal); background:var(--ivory); }
@@ -798,8 +810,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 
 /* Touch-friendly minimum target sizes */
 @media (hover:none) and (pointer:coarse){
-  .btn, .nav-toggle, .footer-social a, .tdots button{ min-height:44px; }
-  .tdots button{ min-height:auto; width:12px; height:12px; }
+  .btn, .nav-toggle, .footer-social a{ min-height:44px; }
   .nav-links a{ padding:10px 0; }
 }
 
@@ -814,11 +825,14 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
   backdrop-filter: blur(10px);
   border-top:1px solid rgba(200,155,60,.3);
   transform: translateY(100%);
-  transition: transform .35s ease;
+  visibility:hidden;
+  transition: transform .35s ease, visibility 0s linear .35s;
 }
-.sticky-cta.is-visible{ transform: translateY(0); }
+.sticky-cta.is-visible{ transform: translateY(0); visibility:visible; transition: transform .35s ease; }
 .sticky-cta-btn{
   flex:1;
+  display:flex; align-items:center; justify-content:center;
+  min-height:44px;
   text-align:center;
   padding:12px 10px;
   border-radius:3px;
@@ -862,9 +876,10 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
   clip:rect(0,0,0,0); white-space:nowrap; border:0;
 }
 </style>
+<noscript><style>.reveal{opacity:1 !important; transform:none !important}</style></noscript>
 </head>
 <body>
-<a href="#home" class="skip-link">Skip to main content</a>
+<a href="#main" class="skip-link">Skip to main content</a>
 
 <!-- ============ NAVIGATION ============ -->
 <header class="nav" id="siteNav">
@@ -873,7 +888,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
       <img src="assets/logo.png" alt="" width="206" height="272" class="brand-logo">
       <span>Biryani <em>Nawaabs</em></span>
     </a>
-    <nav class="nav-links" id="navLinks">
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
       <a href="#home">Home</a>
       <a href="#story">Story</a>
       <a href="#menu">Menu</a>
@@ -882,13 +897,14 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
       <a href="#locations">Locations</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
 <!-- ============ HERO ============ -->
+<main id="main">
 <section class="hero" id="home">
   <div class="hero-media">
     <img src="assets/hero.jpg" alt="" width="947" height="608" fetchpriority="high" id="heroImg">
@@ -902,7 +918,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
   </div>
 
   <div class="hero-arch">
-    <svg viewBox="0 0 1200 140" preserveAspectRatio="none"><path d="M0 140V60C0 60 300 0 600 0C900 0 1200 60 1200 60V140H0Z" fill="var(--ivory)"/></svg>
+    <svg aria-hidden="true" focusable="false" viewBox="0 0 1200 140" preserveAspectRatio="none"><path d="M0 140V60C0 60 300 0 600 0C900 0 1200 60 1200 60V140H0Z" fill="var(--ivory)"/></svg>
   </div>
 
   <div class="hero-content wrap">
@@ -1001,7 +1017,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 </section>
 
 <div class="arch-divider">
-  <svg viewBox="0 0 1200 64" preserveAspectRatio="none"><path d="M0 0h1200v40c-200 24-400 24-600 24S200 40 0 40V0Z" fill="var(--maroon)"/></svg>
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 1200 64" preserveAspectRatio="none"><path d="M0 0h1200v40c-200 24-400 24-600 24S200 40 0 40V0Z" fill="var(--maroon)"/></svg>
 </div>
 
 <!-- ============ WHY CHOOSE US ============ -->
@@ -1014,32 +1030,32 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 
     <div class="why-grid">
       <div class="why-card reveal">
-        <div class="why-icon"><svg viewBox="0 0 48 48" fill="none"><path d="M8 20l6 6 4-9 6 9 6-9 4 9 6-6-3 18H11L8 20Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+        <div class="why-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 48 48" fill="none"><path d="M8 20l6 6 4-9 6 9 6-9 4 9 6-6-3 18H11L8 20Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
         <h3>Authentic Awadhi Recipe</h3>
         <p>Unaltered since the royal bawarchikhana.</p>
       </div>
       <div class="why-card reveal">
-        <div class="why-icon"><svg viewBox="0 0 48 48" fill="none"><ellipse cx="24" cy="24" rx="6" ry="15" stroke="currentColor" stroke-width="2"/><ellipse cx="15" cy="24" rx="5" ry="12" stroke="currentColor" stroke-width="2"/><ellipse cx="33" cy="24" rx="5" ry="12" stroke="currentColor" stroke-width="2"/></svg></div>
+        <div class="why-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 48 48" fill="none"><ellipse cx="24" cy="24" rx="6" ry="15" stroke="currentColor" stroke-width="2"/><ellipse cx="15" cy="24" rx="5" ry="12" stroke="currentColor" stroke-width="2"/><ellipse cx="33" cy="24" rx="5" ry="12" stroke="currentColor" stroke-width="2"/></svg></div>
         <h3>Premium Basmati Rice</h3>
         <p>Aged long-grain rice, chosen for aroma.</p>
       </div>
       <div class="why-card reveal">
-        <div class="why-icon"><svg viewBox="0 0 48 48" fill="none"><path d="M10 20h28l-3 18H13l-3-18Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 20c0-8 4-12 10-12s10 4 10 12" stroke="currentColor" stroke-width="2"/></svg></div>
+        <div class="why-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 48 48" fill="none"><path d="M10 20h28l-3 18H13l-3-18Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 20c0-8 4-12 10-12s10 4 10 12" stroke="currentColor" stroke-width="2"/></svg></div>
         <h3>Secret Spice Blend</h3>
         <p>A masala guarded across generations.</p>
       </div>
       <div class="why-card reveal">
-        <div class="why-icon"><svg viewBox="0 0 48 48" fill="none"><path d="M9 26a15 15 0 0 1 30 0v4H9v-4Z" stroke="currentColor" stroke-width="2"/><path d="M6 30h36" stroke="currentColor" stroke-width="2"/><path d="M24 11V6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <div class="why-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 48 48" fill="none"><path d="M9 26a15 15 0 0 1 30 0v4H9v-4Z" stroke="currentColor" stroke-width="2"/><path d="M6 30h36" stroke="currentColor" stroke-width="2"/><path d="M24 11V6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
         <h3>Slow Dum Cooking</h3>
         <p>Sealed and simmered over ember-low heat.</p>
       </div>
       <div class="why-card reveal">
-        <div class="why-icon"><svg viewBox="0 0 48 48" fill="none"><path d="M12 22c0-8 5-14 12-14s12 6 12 14" stroke="currentColor" stroke-width="2"/><path d="M8 22h32l-2 8H10l-2-8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 34h20" stroke="currentColor" stroke-width="2"/></svg></div>
+        <div class="why-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 48 48" fill="none"><path d="M12 22c0-8 5-14 12-14s12 6 12 14" stroke="currentColor" stroke-width="2"/><path d="M8 22h32l-2 8H10l-2-8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 34h20" stroke="currentColor" stroke-width="2"/></svg></div>
         <h3>Fresh Everyday</h3>
         <p>Cooked in small batches, never held over.</p>
       </div>
       <div class="why-card reveal">
-        <div class="why-icon"><svg viewBox="0 0 48 48" fill="none"><path d="M8 40V20l6 5 10-9 10 9 6-5v20H8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 40h32" stroke="currentColor" stroke-width="2"/></svg></div>
+        <div class="why-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 48 48" fill="none"><path d="M8 40V20l6 5 10-9 10 9 6-5v20H8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 40h32" stroke="currentColor" stroke-width="2"/></svg></div>
         <h3>Royal Taste</h3>
         <p>A recipe once served on palace tables.</p>
       </div>
@@ -1075,7 +1091,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
       <article class="dish-card dish-large reveal">
         <div class="dish-media">
           <div class="dish-steam"><span></span><span></span><span></span></div>
-          <svg viewBox="0 0 120 120" class="dish-illustration"><circle cx="60" cy="60" r="46" fill="var(--sand)" opacity=".25"/><ellipse cx="60" cy="70" rx="42" ry="14" fill="var(--gold)" opacity=".5"/><path d="M30 66c6-18 20-30 30-30s24 12 30 30" stroke="var(--maroon)" stroke-width="2.5" fill="none"/></svg>
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 120 120" class="dish-illustration"><circle cx="60" cy="60" r="46" fill="var(--sand)" opacity=".25"/><ellipse cx="60" cy="70" rx="42" ry="14" fill="var(--gold)" opacity=".5"/><path d="M30 66c6-18 20-30 30-30s24 12 30 30" stroke="var(--maroon)" stroke-width="2.5" fill="none"/></svg>
         </div>
         <div class="dish-info">
           <span class="dish-tag">Chef&rsquo;s Pick</span>
@@ -1087,7 +1103,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 
       <article class="dish-card reveal">
         <div class="dish-media"><div class="dish-steam"><span></span><span></span></div>
-          <svg viewBox="0 0 120 120" class="dish-illustration"><ellipse cx="60" cy="72" rx="40" ry="13" fill="var(--gold)" opacity=".5"/><circle cx="60" cy="58" r="30" fill="var(--sand)" opacity=".3"/></svg>
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 120 120" class="dish-illustration"><ellipse cx="60" cy="72" rx="40" ry="13" fill="var(--gold)" opacity=".5"/><circle cx="60" cy="58" r="30" fill="var(--sand)" opacity=".3"/></svg>
         </div>
         <div class="dish-info"><span class="dish-tag">Bestseller</span><h3>Chicken Biryani</h3><p>Long-grain basmati, dum-sealed with tender chicken.</p>
           <div class="dish-meta"><span class="food-mark nonveg" role="img" aria-label="Non-vegetarian"></span><span class="dish-price">₹349</span><span class="dish-serves">Serves 1–2</span></div></div>
@@ -1095,7 +1111,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 
       <article class="dish-card reveal">
         <div class="dish-media"><div class="dish-steam"><span></span><span></span></div>
-          <svg viewBox="0 0 120 120" class="dish-illustration"><ellipse cx="60" cy="72" rx="40" ry="13" fill="var(--gold)" opacity=".5"/><circle cx="60" cy="58" r="30" fill="var(--emerald)" opacity=".22"/></svg>
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 120 120" class="dish-illustration"><ellipse cx="60" cy="72" rx="40" ry="13" fill="var(--gold)" opacity=".5"/><circle cx="60" cy="58" r="30" fill="var(--emerald)" opacity=".22"/></svg>
         </div>
         <div class="dish-info"><span class="dish-tag">Royal Classic</span><h3>Mutton Biryani</h3><p>Slow-cooked mutton, rich with a royal masala legacy.</p>
           <div class="dish-meta"><span class="food-mark nonveg" role="img" aria-label="Non-vegetarian"></span><span class="dish-price">₹449</span><span class="dish-serves">Serves 1–2</span></div></div>
@@ -1103,7 +1119,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 
       <article class="dish-card reveal">
         <div class="dish-media"><div class="dish-steam"><span></span><span></span></div>
-          <svg viewBox="0 0 120 120" class="dish-illustration"><ellipse cx="60" cy="72" rx="40" ry="13" fill="var(--gold)" opacity=".5"/><circle cx="60" cy="58" r="30" fill="var(--emerald)" opacity=".3"/></svg>
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 120 120" class="dish-illustration"><ellipse cx="60" cy="72" rx="40" ry="13" fill="var(--gold)" opacity=".5"/><circle cx="60" cy="58" r="30" fill="var(--emerald)" opacity=".3"/></svg>
         </div>
         <div class="dish-info"><span class="dish-tag">Vegetarian</span><h3>Veg Biryani</h3><p>Garden-fresh vegetables, layered in fragrant saffron rice.</p>
           <div class="dish-meta"><span class="food-mark veg" role="img" aria-label="Vegetarian"></span><span class="dish-price">₹249</span><span class="dish-serves">Serves 1–2</span></div></div>
@@ -1111,7 +1127,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 
       <article class="dish-card reveal">
         <div class="dish-media"><div class="dish-steam"><span></span><span></span></div>
-          <svg viewBox="0 0 120 120" class="dish-illustration"><ellipse cx="60" cy="72" rx="38" ry="12" fill="var(--gold)" opacity=".5"/><rect x="34" y="46" width="52" height="18" rx="9" fill="var(--sand)" opacity=".35"/></svg>
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 120 120" class="dish-illustration"><ellipse cx="60" cy="72" rx="38" ry="12" fill="var(--gold)" opacity=".5"/><rect x="34" y="46" width="52" height="18" rx="9" fill="var(--sand)" opacity=".35"/></svg>
         </div>
         <div class="dish-info"><span class="dish-tag">Heritage</span><h3>Kakori Kebab</h3><p>Silken seekh kebabs, a Lucknawi classic since the 1900s.</p>
           <div class="dish-meta"><span class="food-mark nonveg" role="img" aria-label="Non-vegetarian"></span><span class="dish-price">₹399</span><span class="dish-serves">4 pieces</span></div></div>
@@ -1119,7 +1135,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 
       <article class="dish-card reveal">
         <div class="dish-media"><div class="dish-steam small"><span></span></div>
-          <svg viewBox="0 0 120 120" class="dish-illustration"><circle cx="60" cy="60" r="32" fill="var(--ivory)" opacity=".7"/><circle cx="60" cy="60" r="32" fill="none" stroke="var(--gold)" stroke-width="2"/></svg>
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 120 120" class="dish-illustration"><circle cx="60" cy="60" r="32" fill="var(--ivory)" opacity=".7"/><circle cx="60" cy="60" r="32" fill="none" stroke="var(--gold)" stroke-width="2"/></svg>
         </div>
         <div class="dish-info"><span class="dish-tag">Dessert</span><h3>Firni</h3><p>Chilled saffron rice pudding, set in traditional clay bowls.</p>
           <div class="dish-meta"><span class="food-mark veg" role="img" aria-label="Vegetarian"></span><span class="dish-price">₹129</span><span class="dish-serves">Per bowl</span></div></div>
@@ -1127,7 +1143,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 
       <article class="dish-card reveal">
         <div class="dish-media">
-          <svg viewBox="0 0 120 120" class="dish-illustration"><ellipse cx="60" cy="60" rx="38" ry="24" fill="var(--sand)" opacity=".4"/></svg>
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 120 120" class="dish-illustration"><ellipse cx="60" cy="60" rx="38" ry="24" fill="var(--sand)" opacity=".4"/></svg>
         </div>
         <div class="dish-info"><span class="dish-tag">Bread</span><h3>Sheermal</h3><p>Saffron-scented flatbread, lightly sweetened and griddle-baked.</p>
           <div class="dish-meta"><span class="food-mark veg" role="img" aria-label="Vegetarian"></span><span class="dish-price">₹79</span><span class="dish-serves">Per piece</span></div></div>
@@ -1146,12 +1162,12 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
       <p class="franchise-lede">Bring an 18-year heritage brand to your city, backed end-to-end by the team that built it.</p>
 
       <div class="franchise-grid">
-        <div><h4>Starting Investment</h4><p>Transparent, tiered by outlet format</p></div>
-        <div><h4>Estimated Timeline</h4><p>Clear ROI projection shared at inquiry</p></div>
-        <div><h4>End-to-End Support</h4><p>Site selection to launch, fully guided</p></div>
-        <div><h4>National Branding</h4><p>Marketing playbooks built for you</p></div>
-        <div><h4>Operational Training</h4><p>Kitchen, service and staff, covered</p></div>
-        <div><h4>Ongoing Partnership</h4><p>A relationship that continues post-launch</p></div>
+        <div><h3>Starting Investment</h3><p>Transparent, tiered by outlet format</p></div>
+        <div><h3>Estimated Timeline</h3><p>Clear ROI projection shared at inquiry</p></div>
+        <div><h3>End-to-End Support</h3><p>Site selection to launch, fully guided</p></div>
+        <div><h3>National Branding</h3><p>Marketing playbooks built for you</p></div>
+        <div><h3>Operational Training</h3><p>Kitchen, service and staff, covered</p></div>
+        <div><h3>Ongoing Partnership</h3><p>A relationship that continues post-launch</p></div>
       </div>
 
       <a href="#franchise-apply" class="btn btn-primary" style="margin-top:38px;">Apply Now</a>
@@ -1159,7 +1175,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 
     <div class="franchise-visual reveal">
       <div class="franchise-arch">
-        <svg viewBox="0 0 200 240"><path d="M4 236V90C4 40 45 4 100 4s96 36 96 86v146" stroke="var(--gold)" stroke-width="2" fill="none"/><path d="M4 236V90C4 40 45 4 100 4s96 36 96 86v146" stroke="var(--gold)" stroke-width="2" fill="none" transform="translate(0,0) scale(0.86)" opacity=".5" style="transform-origin:100px 236px"/></svg>
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 200 240"><path d="M4 236V90C4 40 45 4 100 4s96 36 96 86v146" stroke="var(--gold)" stroke-width="2" fill="none"/><path d="M4 236V90C4 40 45 4 100 4s96 36 96 86v146" stroke="var(--gold)" stroke-width="2" fill="none" transform="translate(0,0) scale(0.86)" opacity=".5" style="transform-origin:100px 236px"/></svg>
         <div class="franchise-quote">
           <p>“We didn't just license a name — we inherited a kitchen's worth of trust.”</p>
           <span>— Franchise Partner, Pune</span>
@@ -1249,7 +1265,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
       <p class="eyebrow">Customer Reviews</p>
       <h2>Loved Across Tables</h2>
     </div>
-    <div class="tslider" id="tSlider">
+    <div class="tslider" id="tSlider" role="region" aria-roledescription="carousel" aria-label="Customer testimonials">
       <div class="tslide is-active">
         <p>“The dum biryani tastes exactly like what my grandmother used to describe from Old Lucknow. Genuinely royal.”</p>
         <span>— Ananya R., Delhi</span>
@@ -1263,7 +1279,12 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
         <span>— Karan S., Franchise Partner</span>
       </div>
     </div>
-    <div class="tdots" id="tDots"></div>
+    <div class="tctrl">
+      <button type="button" id="tPrev" aria-label="Previous testimonial">‹</button>
+      <div class="tdots" id="tDots"></div>
+      <button type="button" id="tNext" aria-label="Next testimonial">›</button>
+      <button type="button" id="tPause" aria-label="Pause testimonial rotation" aria-pressed="false">❚❚</button>
+    </div>
   </div>
 </section>
 
@@ -1275,15 +1296,16 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
       <h2>Outlets Across India</h2>
     </div>
     <div class="loc-grid">
-      <div class="loc-card reveal"><h4>Lucknow</h4><p>Hazratganj · Gomti Nagar · Aliganj</p></div>
-      <div class="loc-card reveal"><h4>Delhi NCR</h4><p>Connaught Place · Noida · Gurugram</p></div>
-      <div class="loc-card reveal"><h4>Mumbai</h4><p>Andheri · Bandra · Powai</p></div>
-      <div class="loc-card reveal"><h4>Bengaluru</h4><p>Indiranagar · Koramangala</p></div>
-      <div class="loc-card reveal"><h4>Pune</h4><p>Kothrud · Viman Nagar</p></div>
-      <div class="loc-card reveal"><h4>+ 15 Cities</h4><p>Growing every quarter — join the map</p></div>
+      <div class="loc-card reveal"><h3>Lucknow</h3><p>Hazratganj · Gomti Nagar · Aliganj</p></div>
+      <div class="loc-card reveal"><h3>Delhi NCR</h3><p>Connaught Place · Noida · Gurugram</p></div>
+      <div class="loc-card reveal"><h3>Mumbai</h3><p>Andheri · Bandra · Powai</p></div>
+      <div class="loc-card reveal"><h3>Bengaluru</h3><p>Indiranagar · Koramangala</p></div>
+      <div class="loc-card reveal"><h3>Pune</h3><p>Kothrud · Viman Nagar</p></div>
+      <div class="loc-card reveal"><h3>+ 15 Cities</h3><p>Growing every quarter — <a href="#franchise-apply" style="color:var(--maroon); text-decoration:underline;">join the map</a></p></div>
     </div>
   </div>
 </section>
+</main>
 
 <!-- ============ CONTACT / FOOTER ============ -->
 <footer class="site-footer" id="contact">
@@ -1301,14 +1323,14 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
         <span>Open daily, 11:00 AM – 11:00 PM</span>
       </address>
       <div class="footer-social">
-        <a href="https://www.instagram.com/biryaninawaabs" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
-        <a href="https://www.facebook.com/biryaninawaabs" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
-        <a href="https://wa.me/915224000000" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
+        <a href="https://www.instagram.com/biryaninawaabs" target="_blank" rel="noopener" aria-label="IG — Instagram">IG</a>
+        <a href="https://www.facebook.com/biryaninawaabs" target="_blank" rel="noopener" aria-label="FB — Facebook">FB</a>
+        <a href="https://wa.me/915224000000" target="_blank" rel="noopener" aria-label="WA — WhatsApp">WA</a>
       </div>
     </div>
 
     <div class="footer-col">
-      <h5>Explore</h5>
+      <h3>Explore</h3>
       <a href="#story">Our Story</a>
       <a href="#menu">Menu</a>
       <a href="#franchise">Franchise</a>
@@ -1316,14 +1338,14 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
     </div>
 
     <div class="footer-col">
-      <h5>Company</h5>
+      <h3>Company</h3>
       <a href="#locations">Locations</a>
       <a href="mailto:careers@biryaninawaabs.com">Careers</a>
       <a href="#contact">Contact</a>
     </div>
 
     <div class="footer-col footer-form">
-      <h5>Get in Touch</h5>
+      <h3>Get in Touch</h3>
       <form id="contactForm" data-form novalidate>
         <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
         <input type="hidden" name="subject" value="Website inquiry — biryaninawaabs.com">
@@ -1390,7 +1412,14 @@ function toggleMenu(){
 }
 navToggle.addEventListener('click', toggleMenu);
 navLinksEl.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && navLinksEl.classList.contains('is-open')){
+    closeMenu();
+    navToggle.focus();
+  }
+});
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 // Scroll reveal
 const revealEls = document.querySelectorAll('.reveal');
@@ -1404,15 +1433,23 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold:.15 });
 revealEls.forEach(el => revealObserver.observe(el));
 
-// Floating sand particles in hero
+// Floating sand particles in hero (skipped for reduced motion)
 const particleHost = document.getElementById('heroParticles');
-for (let i=0; i<22; i++){
-  const p = document.createElement('span');
-  p.style.left = Math.random()*100 + '%';
-  p.style.animationDuration = (9 + Math.random()*10) + 's';
-  p.style.animationDelay = (Math.random()*10) + 's';
-  particleHost.appendChild(p);
+if (!prefersReducedMotion.matches){
+  for (let i=0; i<22; i++){
+    const p = document.createElement('span');
+    p.style.left = Math.random()*100 + '%';
+    p.style.animationDuration = (9 + Math.random()*10) + 's';
+    p.style.animationDelay = (Math.random()*10) + 's';
+    particleHost.appendChild(p);
+  }
 }
+
+// Pause hero ambient animations once the hero scrolls out of view
+const heroMedia = document.querySelector('.hero-media');
+new IntersectionObserver(entries => {
+  heroMedia.classList.toggle('is-paused', !entries[0].isIntersecting);
+}).observe(heroEl);
 
 // Stats counter animation
 const statNums = document.querySelectorAll('.stat-num');
@@ -1421,6 +1458,11 @@ const statObserver = new IntersectionObserver((entries) => {
     if (entry.isIntersecting){
       const el = entry.target;
       const target = parseInt(el.dataset.target, 10);
+      if (prefersReducedMotion.matches){
+        el.textContent = target;
+        statObserver.unobserve(el);
+        return;
+      }
       let cur = 0;
       const step = Math.max(1, Math.ceil(target/50));
       const tick = () => {
@@ -1435,24 +1477,58 @@ const statObserver = new IntersectionObserver((entries) => {
 }, { threshold:.5 });
 statNums.forEach(el => statObserver.observe(el));
 
-// Testimonial auto-slider
+// Testimonial carousel: labelled dots, prev/next, pause control,
+// pauses on hover/focus, and no autoplay under reduced motion
 const slides = document.querySelectorAll('.tslide');
 const dotsHost = document.getElementById('tDots');
-let tIndex = 0;
-slides.forEach((_, i) => {
+const sliderEl = document.getElementById('tSlider');
+const pauseBtn = document.getElementById('tPause');
+let tIndex = 0, tTimer = null, tPaused = false;
+slides.forEach((slide, i) => {
+  slide.setAttribute('aria-hidden', String(i !== 0));
   const dot = document.createElement('button');
-  if (i===0) dot.classList.add('is-active');
+  dot.type = 'button';
+  dot.setAttribute('aria-label', 'Show testimonial ' + (i+1) + ' of ' + slides.length);
+  if (i === 0){ dot.classList.add('is-active'); dot.setAttribute('aria-current', 'true'); }
   dot.addEventListener('click', () => showSlide(i));
   dotsHost.appendChild(dot);
 });
 function showSlide(i){
   slides[tIndex].classList.remove('is-active');
+  slides[tIndex].setAttribute('aria-hidden', 'true');
   dotsHost.children[tIndex].classList.remove('is-active');
-  tIndex = i;
+  dotsHost.children[tIndex].removeAttribute('aria-current');
+  tIndex = (i + slides.length) % slides.length;
   slides[tIndex].classList.add('is-active');
+  slides[tIndex].setAttribute('aria-hidden', 'false');
   dotsHost.children[tIndex].classList.add('is-active');
+  dotsHost.children[tIndex].setAttribute('aria-current', 'true');
 }
-setInterval(() => { showSlide((tIndex+1) % slides.length); }, 5000);
+function stopRotation(){
+  clearInterval(tTimer);
+  tTimer = null;
+  sliderEl.setAttribute('aria-live', 'polite');
+}
+function startRotation(){
+  if (tPaused || prefersReducedMotion.matches || tTimer) return;
+  sliderEl.setAttribute('aria-live', 'off');
+  tTimer = setInterval(() => showSlide(tIndex + 1), 5000);
+}
+document.getElementById('tPrev').addEventListener('click', () => showSlide(tIndex - 1));
+document.getElementById('tNext').addEventListener('click', () => showSlide(tIndex + 1));
+pauseBtn.addEventListener('click', () => {
+  tPaused = !tPaused;
+  pauseBtn.setAttribute('aria-pressed', String(tPaused));
+  pauseBtn.setAttribute('aria-label', tPaused ? 'Resume testimonial rotation' : 'Pause testimonial rotation');
+  pauseBtn.textContent = tPaused ? '▶' : '❚❚';
+  if (tPaused) stopRotation(); else startRotation();
+});
+const tSection = sliderEl.closest('.testimonials');
+tSection.addEventListener('mouseenter', stopRotation);
+tSection.addEventListener('mouseleave', startRotation);
+tSection.addEventListener('focusin', stopRotation);
+tSection.addEventListener('focusout', startRotation);
+startRotation();
 
 // Contact + franchise forms (Web3Forms). Until a real access key replaces the
 // placeholder, submissions show a graceful "call or WhatsApp us" fallback.
