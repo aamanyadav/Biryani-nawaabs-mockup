@@ -52,7 +52,7 @@
 }
 
 *{ margin:0; padding:0; box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
+html{ scroll-behavior:smooth; scroll-padding-top:84px; scroll-padding-bottom:84px; }
 body{
   font-family: var(--font-body);
   color: var(--charcoal);
@@ -652,6 +652,58 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 .footer-bottom{ border-top:1px solid rgba(200,155,60,.18); padding:22px 0; }
 .footer-bottom p{ font-size:.76rem; color:#9c806a; text-align:center; }
 
+/* ============================================
+   ORDER BAR + WORKING FORMS
+   ============================================ */
+.order-bar{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin:6px 0 48px; }
+.order-btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:12px 22px; min-height:44px; border-radius:3px;
+  font-weight:600; font-size:.82rem; letter-spacing:.06em; text-transform:uppercase;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.order-btn:hover{ transform:translateY(-2px); box-shadow:0 8px 20px rgba(30,30,30,.18); }
+.order-btn.zomato{ background:#E23744; color:#fff; }
+.order-btn.swiggy{ background:#FC8019; color:#fff; }
+.order-btn.whatsapp{ background:var(--emerald); color:#fff; }
+.order-btn.call{ border:1.5px solid var(--maroon); color:var(--maroon); }
+.sticky-cta-btn.wa{ background:var(--emerald); color:#fff; }
+
+.form-status{ display:none; margin-top:12px; padding:10px 13px; border-radius:3px; font-size:.85rem; letter-spacing:0; text-transform:none; }
+.form-status.is-error{ display:block; background:rgba(226,55,68,.14); color:#ffd9d9; border:1px solid rgba(226,55,68,.5); }
+.form-status.is-success{ display:block; background:rgba(14,92,71,.2); color:#bfe8d9; border:1px solid rgba(14,92,71,.6); }
+
+.franchise-form{
+  margin-top:52px; background:rgba(62,10,18,.55);
+  border:1px solid rgba(200,155,60,.3); border-radius:6px;
+  padding:36px 32px;
+}
+.franchise-form h3{ color:var(--gold-light); font-size:1.3rem; margin-bottom:8px; }
+.franchise-form .franchise-form-lede{ font-size:.9rem; color:#d9c2ab; margin-bottom:24px; }
+.franchise-form .form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.franchise-form label{
+  display:block; font-size:.76rem; letter-spacing:.05em; text-transform:uppercase;
+  color:var(--gold-light); margin-bottom:6px;
+}
+.franchise-form input, .franchise-form select, .franchise-form textarea{
+  width:100%; padding:11px 13px;
+  background:rgba(248,243,234,.06);
+  border:1px solid rgba(200,155,60,.3); border-radius:3px;
+  color:var(--ivory); font-family:inherit; font-size:.88rem;
+}
+.franchise-form select option{ color:var(--charcoal); background:var(--ivory); }
+.franchise-form textarea{ resize:vertical; }
+.franchise-form .form-msg-label{ margin-top:16px; }
+.franchise-form .form-consent{
+  display:flex; gap:10px; align-items:flex-start; margin:18px 0;
+  font-size:.8rem; color:#d9c2ab; text-transform:none; letter-spacing:0;
+}
+.franchise-form .form-consent input{ width:auto; margin-top:3px; }
+@media (max-width:700px){
+  .franchise-form{ padding:28px 20px; }
+  .franchise-form .form-grid{ grid-template-columns:1fr; }
+}
+
 @media (max-width:900px){
   .footer-inner{ grid-template-columns:1fr 1fr; }
 }
@@ -845,7 +897,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
     <h1 class="hero-title reveal">Royal Taste.<br>Crafted in Lucknow.<br>Loved Across India.</h1>
     <p class="hero-sub reveal">Authentic Awadhi biryani, prepared with centuries-old recipes and modern excellence — one slow-cooked dum at a time.</p>
     <div class="hero-ctas reveal">
-      <a href="#menu" class="btn btn-primary">Explore Menu</a>
+      <a href="#order" class="btn btn-primary">Order Now</a>
       <a href="#franchise" class="btn btn-outline">Become a Franchise</a>
     </div>
   </div>
@@ -998,6 +1050,13 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
       <p>Seven dishes. Zero shortcuts.</p>
     </div>
 
+    <div class="order-bar reveal" id="order">
+      <a href="https://www.zomato.com/" class="order-btn zomato" target="_blank" rel="noopener">Order on Zomato</a>
+      <a href="https://www.swiggy.com/" class="order-btn swiggy" target="_blank" rel="noopener">Order on Swiggy</a>
+      <a href="https://wa.me/915224000000?text=Hi%20Biryani%20Nawaabs%2C%20I%27d%20like%20to%20place%20an%20order." class="order-btn whatsapp" target="_blank" rel="noopener">Order on WhatsApp</a>
+      <a href="tel:+915224000000" class="order-btn call">Call to Order</a>
+    </div>
+
     <div class="menu-grid">
 
       <article class="dish-card dish-large reveal">
@@ -1075,7 +1134,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
         <div><h4>Ongoing Partnership</h4><p>A relationship that continues post-launch</p></div>
       </div>
 
-      <a href="#contact" class="btn btn-primary" style="margin-top:38px;">Apply Now</a>
+      <a href="#franchise-apply" class="btn btn-primary" style="margin-top:38px;">Apply Now</a>
     </div>
 
     <div class="franchise-visual reveal">
@@ -1087,6 +1146,61 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="wrap">
+    <form class="franchise-form reveal" id="franchise-apply" data-form novalidate>
+      <h3>Apply for a Franchise</h3>
+      <p class="franchise-form-lede">Tell us about yourself and the city you want to bring Biryani Nawaabs to — our team responds within 48 hours.</p>
+      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+      <input type="hidden" name="subject" value="Franchise application — biryaninawaabs.com">
+      <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" aria-hidden="true">
+      <div class="form-grid">
+        <div>
+          <label for="frName">Full name</label>
+          <input id="frName" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div>
+          <label for="frPhone">Mobile number</label>
+          <input id="frPhone" name="phone" type="tel" autocomplete="tel" placeholder="+91" required>
+        </div>
+        <div>
+          <label for="frEmail">Email address</label>
+          <input id="frEmail" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div>
+          <label for="frCity">City &amp; state</label>
+          <input id="frCity" name="city" type="text" required>
+        </div>
+        <div>
+          <label for="frBudget">Investment budget</label>
+          <select id="frBudget" name="budget" required>
+            <option value="">Select a range</option>
+            <option>Under ₹15 lakh</option>
+            <option>₹15–30 lakh</option>
+            <option>₹30–60 lakh</option>
+            <option>Above ₹60 lakh</option>
+          </select>
+        </div>
+        <div>
+          <label for="frFormat">Preferred format</label>
+          <select id="frFormat" name="format" required>
+            <option value="">Select a format</option>
+            <option>Dine-in restaurant</option>
+            <option>Cloud kitchen</option>
+            <option>Kiosk / express counter</option>
+          </select>
+        </div>
+      </div>
+      <label for="frMessage" class="form-msg-label">Anything else — property available, F&amp;B experience (optional)</label>
+      <textarea id="frMessage" name="message" rows="3"></textarea>
+      <label class="form-consent">
+        <input type="checkbox" name="consent" value="yes" required>
+        <span>I agree to be contacted by Biryani Nawaabs about my application.</span>
+      </label>
+      <button class="btn btn-primary" type="submit">Submit Application</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
+    </form>
   </div>
 </section>
 
@@ -1184,14 +1298,20 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 
     <div class="footer-col footer-form">
       <h5>Get in Touch</h5>
-      <form onsubmit="return false;">
+      <form id="contactForm" data-form novalidate>
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+        <input type="hidden" name="subject" value="Website inquiry — biryaninawaabs.com">
+        <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" aria-hidden="true">
         <label for="cfName" class="visually-hidden">Your name</label>
         <input type="text" id="cfName" name="name" placeholder="Your name" autocomplete="name" required>
+        <label for="cfPhone" class="visually-hidden">Phone number</label>
+        <input type="tel" id="cfPhone" name="phone" placeholder="Phone number" autocomplete="tel" required>
         <label for="cfEmail" class="visually-hidden">Email address</label>
         <input type="email" id="cfEmail" name="email" placeholder="Email address" autocomplete="email" required>
         <label for="cfMessage" class="visually-hidden">Your message</label>
         <textarea id="cfMessage" name="message" placeholder="Your message" rows="3" required></textarea>
         <button class="btn btn-primary" type="submit">Send Inquiry</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
       </form>
     </div>
   </div>
@@ -1202,8 +1322,9 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 
 <!-- ============ STICKY MOBILE CTA ============ -->
 <div class="sticky-cta" id="stickyCta">
-  <a href="#menu" class="sticky-cta-btn primary">Explore Menu</a>
-  <a href="#franchise" class="sticky-cta-btn outline">Become a Franchise</a>
+  <a href="#order" class="sticky-cta-btn primary">Order</a>
+  <a href="tel:+915224000000" class="sticky-cta-btn outline">Call</a>
+  <a href="https://wa.me/915224000000?text=Hi%20Biryani%20Nawaabs%2C%20I%27d%20like%20to%20place%20an%20order." class="sticky-cta-btn wa" target="_blank" rel="noopener">WhatsApp</a>
 </div>
 
 <script>
@@ -1306,6 +1427,50 @@ function showSlide(i){
   dotsHost.children[tIndex].classList.add('is-active');
 }
 setInterval(() => { showSlide((tIndex+1) % slides.length); }, 5000);
+
+// Contact + franchise forms (Web3Forms). Until a real access key replaces the
+// placeholder, submissions show a graceful "call or WhatsApp us" fallback.
+const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
+const FORM_KEY_PLACEHOLDER = 'YOUR_WEB3FORMS_ACCESS_KEY';
+document.querySelectorAll('form[data-form]').forEach(form => {
+  const status = form.querySelector('.form-status');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const show = (msg, ok) => {
+    status.textContent = msg;
+    status.classList.toggle('is-success', ok);
+    status.classList.toggle('is-error', !ok);
+  };
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    if (form.querySelector('[name="access_key"]').value === FORM_KEY_PLACEHOLDER){
+      show('Our online form is being set up — please call or WhatsApp us and we\'ll help you right away.', false);
+      return;
+    }
+    const original = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      const data = await res.json();
+      if (data.success){
+        form.reset();
+        show('Thank you! Your message has been sent — we respond within 24–48 hours.', true);
+      } else {
+        show('Something went wrong sending your message. Please try again, or call us instead.', false);
+      }
+    } catch {
+      show('Could not reach the server. Please check your connection, or call or WhatsApp us.', false);
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = original;
+    }
+  });
+});
 </script>
 
 </body>
