@@ -1,0 +1,7 @@
+# Netlify build configuration — static site deployed from the repository root.
+# `base` here overrides the biryaninawaabs project's UI setting, which points
+# at a non-existent "Biryani" directory and fails every deploy at config time.
+[build]
+  base = "."
+  publish = "."
+  command = "echo 'Static site - no build step'"
