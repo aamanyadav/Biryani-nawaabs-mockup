@@ -630,6 +630,9 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 }
 .footer-brand p{ margin-top:14px; font-size:.88rem; max-width:260px; color:#c9ab90; }
 .footer-brand .brand{ color: var(--ivory); font-size:1.1rem; }
+.footer-nap{ margin-top:16px; font-style:normal; }
+.footer-nap a, .footer-nap span{ display:block; font-size:.86rem; color:#d9c2ab; margin-bottom:7px; }
+.footer-nap a:hover{ color:var(--gold-light); }
 .footer-social{ display:flex; gap:12px; margin-top:22px; }
 .footer-social a{
   width:34px; height:34px; border:1px solid rgba(200,155,60,.4); border-radius:50%;
@@ -668,6 +671,16 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 .order-btn.whatsapp{ background:var(--emerald); color:#fff; }
 .order-btn.call{ border:1.5px solid var(--maroon); color:var(--maroon); }
 .sticky-cta-btn.wa{ background:var(--emerald); color:#fff; }
+
+.dish-meta{ display:flex; align-items:center; gap:12px; margin-top:12px; }
+.dish-price{ font-family:var(--font-display); font-weight:600; color:var(--maroon); font-size:1.02rem; }
+.dish-serves{ font-size:.72rem; color:#6b5a4a; letter-spacing:.04em; text-transform:uppercase; }
+.food-mark{ display:inline-block; width:13px; height:13px; border:1.5px solid; border-radius:2px; position:relative; flex:none; }
+.food-mark::after{ content:""; position:absolute; inset:2.5px; border-radius:50%; }
+.food-mark.veg{ border-color:#1E7D32; }
+.food-mark.veg::after{ background:#1E7D32; }
+.food-mark.nonveg{ border-color:#A3271E; }
+.food-mark.nonveg::after{ background:#A3271E; }
 
 .form-status{ display:none; margin-top:12px; padding:10px 13px; border-radius:3px; font-size:.85rem; letter-spacing:0; text-transform:none; }
 .form-status.is-error{ display:block; background:rgba(226,55,68,.14); color:#ffd9d9; border:1px solid rgba(226,55,68,.5); }
@@ -913,7 +926,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow">Our Story</p>
-      <h2>Eight Centuries. One Recipe.</h2>
+      <h2>One Recipe, Perfected by Generations.</h2>
       <p>From a walled city on the Gomti to kitchens across the world — the journey of the dum.</p>
     </div>
 
@@ -1033,10 +1046,10 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
     </div>
 
     <div class="stats">
-      <div class="stat"><span class="stat-num" data-target="18">0</span><span class="stat-suffix">+</span><p>Years of Heritage</p></div>
-      <div class="stat"><span class="stat-num" data-target="45">0</span><span class="stat-suffix">+</span><p>Outlets Nationwide</p></div>
-      <div class="stat"><span class="stat-num" data-target="20">0</span><span class="stat-suffix">+</span><p>Cities Served</p></div>
-      <div class="stat"><span class="stat-num" data-target="2">0</span><span class="stat-suffix">M+</span><p>Biryanis Served</p></div>
+      <div class="stat"><span class="stat-num" data-target="18">18</span><span class="stat-suffix">+</span><p>Years of Heritage</p></div>
+      <div class="stat"><span class="stat-num" data-target="45">45</span><span class="stat-suffix">+</span><p>Outlets Nationwide</p></div>
+      <div class="stat"><span class="stat-num" data-target="20">20</span><span class="stat-suffix">+</span><p>Cities Served</p></div>
+      <div class="stat"><span class="stat-num" data-target="2">2</span><span class="stat-suffix">M+</span><p>Biryanis Served</p></div>
     </div>
   </div>
 </section>
@@ -1065,9 +1078,10 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
           <svg viewBox="0 0 120 120" class="dish-illustration"><circle cx="60" cy="60" r="46" fill="var(--sand)" opacity=".25"/><ellipse cx="60" cy="70" rx="42" ry="14" fill="var(--gold)" opacity=".5"/><path d="M30 66c6-18 20-30 30-30s24 12 30 30" stroke="var(--maroon)" stroke-width="2.5" fill="none"/></svg>
         </div>
         <div class="dish-info">
-          <span class="dish-tag">Large Image Card</span>
+          <span class="dish-tag">Chef&rsquo;s Pick</span>
           <h3>Galouti Kebab</h3>
           <p>Melt-in-the-mouth minced kebabs, pounded with over a dozen secret spices.</p>
+          <div class="dish-meta"><span class="food-mark nonveg" role="img" aria-label="Non-vegetarian"></span><span class="dish-price">₹329</span><span class="dish-serves">6 pieces</span></div>
         </div>
       </article>
 
@@ -1075,42 +1089,48 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
         <div class="dish-media"><div class="dish-steam"><span></span><span></span></div>
           <svg viewBox="0 0 120 120" class="dish-illustration"><ellipse cx="60" cy="72" rx="40" ry="13" fill="var(--gold)" opacity=".5"/><circle cx="60" cy="58" r="30" fill="var(--sand)" opacity=".3"/></svg>
         </div>
-        <div class="dish-info"><span class="dish-tag">Premium Card</span><h3>Chicken Biryani</h3><p>Long-grain basmati, dum-sealed with tender chicken.</p></div>
+        <div class="dish-info"><span class="dish-tag">Bestseller</span><h3>Chicken Biryani</h3><p>Long-grain basmati, dum-sealed with tender chicken.</p>
+          <div class="dish-meta"><span class="food-mark nonveg" role="img" aria-label="Non-vegetarian"></span><span class="dish-price">₹349</span><span class="dish-serves">Serves 1–2</span></div></div>
       </article>
 
       <article class="dish-card reveal">
         <div class="dish-media"><div class="dish-steam"><span></span><span></span></div>
           <svg viewBox="0 0 120 120" class="dish-illustration"><ellipse cx="60" cy="72" rx="40" ry="13" fill="var(--gold)" opacity=".5"/><circle cx="60" cy="58" r="30" fill="var(--emerald)" opacity=".22"/></svg>
         </div>
-        <div class="dish-info"><span class="dish-tag">Premium Card</span><h3>Mutton Biryani</h3><p>Slow-cooked mutton, rich with a royal masala legacy.</p></div>
+        <div class="dish-info"><span class="dish-tag">Royal Classic</span><h3>Mutton Biryani</h3><p>Slow-cooked mutton, rich with a royal masala legacy.</p>
+          <div class="dish-meta"><span class="food-mark nonveg" role="img" aria-label="Non-vegetarian"></span><span class="dish-price">₹449</span><span class="dish-serves">Serves 1–2</span></div></div>
       </article>
 
       <article class="dish-card reveal">
         <div class="dish-media"><div class="dish-steam"><span></span><span></span></div>
           <svg viewBox="0 0 120 120" class="dish-illustration"><ellipse cx="60" cy="72" rx="40" ry="13" fill="var(--gold)" opacity=".5"/><circle cx="60" cy="58" r="30" fill="var(--emerald)" opacity=".3"/></svg>
         </div>
-        <div class="dish-info"><span class="dish-tag">Premium Card</span><h3>Veg Biryani</h3><p>Garden-fresh vegetables, layered in fragrant saffron rice.</p></div>
+        <div class="dish-info"><span class="dish-tag">Vegetarian</span><h3>Veg Biryani</h3><p>Garden-fresh vegetables, layered in fragrant saffron rice.</p>
+          <div class="dish-meta"><span class="food-mark veg" role="img" aria-label="Vegetarian"></span><span class="dish-price">₹249</span><span class="dish-serves">Serves 1–2</span></div></div>
       </article>
 
       <article class="dish-card reveal">
         <div class="dish-media"><div class="dish-steam"><span></span><span></span></div>
           <svg viewBox="0 0 120 120" class="dish-illustration"><ellipse cx="60" cy="72" rx="38" ry="12" fill="var(--gold)" opacity=".5"/><rect x="34" y="46" width="52" height="18" rx="9" fill="var(--sand)" opacity=".35"/></svg>
         </div>
-        <div class="dish-info"><span class="dish-tag">Premium Card</span><h3>Kakori Kebab</h3><p>Silken seekh kebabs, a Lucknawi classic since the 1900s.</p></div>
+        <div class="dish-info"><span class="dish-tag">Heritage</span><h3>Kakori Kebab</h3><p>Silken seekh kebabs, a Lucknawi classic since the 1900s.</p>
+          <div class="dish-meta"><span class="food-mark nonveg" role="img" aria-label="Non-vegetarian"></span><span class="dish-price">₹399</span><span class="dish-serves">4 pieces</span></div></div>
       </article>
 
       <article class="dish-card reveal">
         <div class="dish-media"><div class="dish-steam small"><span></span></div>
           <svg viewBox="0 0 120 120" class="dish-illustration"><circle cx="60" cy="60" r="32" fill="var(--ivory)" opacity=".7"/><circle cx="60" cy="60" r="32" fill="none" stroke="var(--gold)" stroke-width="2"/></svg>
         </div>
-        <div class="dish-info"><span class="dish-tag">Dessert Card</span><h3>Firni</h3><p>Chilled saffron rice pudding, set in traditional clay bowls.</p></div>
+        <div class="dish-info"><span class="dish-tag">Dessert</span><h3>Firni</h3><p>Chilled saffron rice pudding, set in traditional clay bowls.</p>
+          <div class="dish-meta"><span class="food-mark veg" role="img" aria-label="Vegetarian"></span><span class="dish-price">₹129</span><span class="dish-serves">Per bowl</span></div></div>
       </article>
 
       <article class="dish-card reveal">
         <div class="dish-media">
           <svg viewBox="0 0 120 120" class="dish-illustration"><ellipse cx="60" cy="60" rx="38" ry="24" fill="var(--sand)" opacity=".4"/></svg>
         </div>
-        <div class="dish-info"><span class="dish-tag">Traditional Card</span><h3>Sheermal</h3><p>Saffron-scented flatbread, lightly sweetened and griddle-baked.</p></div>
+        <div class="dish-info"><span class="dish-tag">Bread</span><h3>Sheermal</h3><p>Saffron-scented flatbread, lightly sweetened and griddle-baked.</p>
+          <div class="dish-meta"><span class="food-mark veg" role="img" aria-label="Vegetarian"></span><span class="dish-price">₹79</span><span class="dish-serves">Per piece</span></div></div>
       </article>
 
     </div>
@@ -1216,7 +1236,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
       <div class="g-tile reveal"><span>The Dining Hall</span></div>
       <div class="g-tile reveal"><span>Spice Table</span></div>
       <div class="g-tile reveal"><span>Copper Handi Service</span></div>
-      <div class="g-tile reveal g-tall"><span>Franchise Launch, Pune</span></div>
+      <div class="g-tile reveal g-tall"><span>Saffron &amp; Spice Table</span></div>
       <div class="g-tile reveal"><span>Chef at Work</span></div>
     </div>
   </div>
@@ -1274,10 +1294,16 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
         <span>Biryani <em>Nawaabs</em></span>
       </a>
       <p>From the royal kitchens of Lucknow to the world.</p>
+      <address class="footer-nap">
+        <a href="tel:+915224000000">+91 522 400 0000</a>
+        <a href="mailto:hello@biryaninawaabs.com">hello@biryaninawaabs.com</a>
+        <span>Hazratganj, Lucknow, Uttar Pradesh</span>
+        <span>Open daily, 11:00 AM – 11:00 PM</span>
+      </address>
       <div class="footer-social">
-        <a href="#" aria-label="Instagram">IG</a>
-        <a href="#" aria-label="Facebook">FB</a>
-        <a href="#" aria-label="WhatsApp">WA</a>
+        <a href="https://www.instagram.com/biryaninawaabs" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+        <a href="https://www.facebook.com/biryaninawaabs" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+        <a href="https://wa.me/915224000000" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
       </div>
     </div>
 
@@ -1292,8 +1318,8 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
     <div class="footer-col">
       <h5>Company</h5>
       <a href="#locations">Locations</a>
-      <a href="#">Careers</a>
-      <a href="#">Contact</a>
+      <a href="mailto:careers@biryaninawaabs.com">Careers</a>
+      <a href="#contact">Contact</a>
     </div>
 
     <div class="footer-col footer-form">
@@ -1316,7 +1342,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="wrap"><p>© 2026 Biryani Nawaabs. All rights reserved. Concept mockup for review.</p></div>
+    <div class="wrap"><p>© 2026 Biryani Nawaabs. All rights reserved. · FSSAI Lic. No. 00000000000000</p></div>
   </div>
 </footer>
 
