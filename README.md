@@ -1,31 +1,38 @@
-# Biryani Nawaabs — Website Mockup
+# Biryani Nawaabs — Website
 
-A single-file, self-contained website concept for **Biryani Nawaabs**, built from the brand's concept document. Theme: *Royal Heritage of Lucknow × Modern Luxury*.
+The production website for **Biryani Nawaabs**. Theme: *Royal Heritage of Lucknow × Modern Luxury*.
 
 > "From the Royal Kitchens of Lucknow to the World."
 
 ## Live Preview
 
-Open `index.html` directly in any browser — no build step, no server, no dependencies to install. If hosted via GitHub Pages, the live link will be:
+Serve the folder with any static server (assets load from `assets/`, so open it over HTTP rather than double-clicking the file):
 
 ```
-https://github.com/aamanyadav/Biryani-nawaabs-mockup
+python -m http.server 8080
+```
+
+If hosted via GitHub Pages, the live link will be:
+
+```
+https://aamanyadav.github.io/Biryani-nawaabs-mockup/
 ```
 
 ## What's Inside
 
 A fully responsive, single-page website covering:
 
-- **Hero** — brand illustration, heading, and primary CTAs
+- **Hero** — brand illustration, heading, and an Order Now CTA
 - **Our Story** — an 8-stage scroll timeline (Ancient Lucknow → Future Global Brand)
 - **Why Choose Us** — 6 core USPs with icons, plus an animated stats counter
-- **Menu** — signature dishes (biryanis, kebabs, Firni, Sheermal) in premium hover cards
-- **Franchise** — investment/support overview with a call-to-action
+- **Menu** — signature dishes with prices, veg/non-veg marks, and an order bar (Zomato / Swiggy / WhatsApp / Call)
+- **Franchise** — overview plus a full application form (city, budget, format)
 - **Gallery** — photo/moment placeholders
-- **Testimonials** — auto-rotating customer quotes
+- **Testimonials** — carousel with dots, prev/next and pause controls
+- **FAQ** — 6 questions with matching FAQPage structured data
 - **Locations** — outlet cities
-- **Footer / Contact** — inquiry form and social links
-- **Sticky mobile CTA bar** for quick access to Menu / Franchise on small screens
+- **Footer / Contact** — working inquiry form (Web3Forms), address block, social links
+- **Sticky mobile CTA bar** — Order / Call / WhatsApp on small screens
 
 ## Design System
 
@@ -44,7 +51,7 @@ A fully responsive, single-page website covering:
 
 ## Tech Stack
 
-Plain **HTML, CSS, and vanilla JavaScript** — no frameworks, no build tools, no npm install. The hero illustration and logo are embedded directly as base64 data URIs, so the file is fully portable: copy `index.html` anywhere and it works.
+Plain **HTML, CSS, and vanilla JavaScript** — no frameworks, no build tools, no npm install. Images live in `assets/` as optimized files (the HTML itself is ~55 KB).
 
 - Scroll-reveal animations via `IntersectionObserver`
 - Animated stat counters
@@ -54,18 +61,16 @@ Plain **HTML, CSS, and vanilla JavaScript** — no frameworks, no build tools, n
 
 ## Accessibility & SEO
 
-- Skip-to-content link, visible focus states, labeled form fields
-- WCAG AA-compliant color contrast across the palette
-- Meta description, Open Graph tags, and favicon included
+- Skip link to `<main>`, visible focus states, labeled form fields with live status regions
+- WCAG 2.2 AA contrast fixes, 44px touch targets, carousel pause control, reduced-motion support in CSS *and* JS
+- Organization + Restaurant + FAQPage JSON-LD, keyword metadata, `robots.txt`, `sitemap.xml`, branded `404.html`
 
 ## Project Status
 
-This is a **front-end concept mockup**, not a production build. Known gaps before real launch:
-
-- [ ] Replace illustrated dish placeholders with real food photography
-- [ ] Wire the contact form to an actual backend/email service
-- [ ] Replace placeholder gallery/location content with real assets and outlet data
-- [ ] Add a real map integration for the Locations section
+Production-track build with **placeholder business data**. Before launch, replace
+every value listed in [PLACEHOLDERS.md](PLACEHOLDERS.md) — phone/WhatsApp/address,
+Web3Forms access key, Zomato/Swiggy URLs, menu prices, verified stats and
+testimonials, FSSAI number, and real photography.
 
 ## License
 
