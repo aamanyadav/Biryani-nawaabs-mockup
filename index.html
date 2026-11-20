@@ -633,6 +633,27 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
   width:100%; height:100%;
   object-fit:cover;
 }
+.g-tile:hover img, .g-tile:focus-visible img{ transform:scale(1.03); }
+.g-tile img{ transition:transform .4s ease; }
+
+.lightbox{
+  border:none; border-radius:6px; padding:0;
+  background:var(--maroon-deep);
+  max-width:min(92vw, 980px);
+}
+.lightbox::backdrop{ background:rgba(20,6,10,.85); }
+.lightbox img{ display:block; max-width:100%; max-height:76vh; width:auto; height:auto; margin:0 auto; }
+.lightbox p{
+  padding:12px 16px; text-align:center;
+  color:var(--gold-light); font-family:var(--font-display); font-size:.92rem;
+}
+.lightbox-close{
+  position:absolute; top:8px; right:8px; z-index:1;
+  min-width:44px; min-height:44px; border-radius:50%;
+  color:var(--ivory); font-size:1.05rem;
+  background:rgba(62,10,18,.8);
+}
+.lightbox-close:hover{ background:var(--maroon); }
 .g-tile span{
   position:relative; z-index:1;
   padding:16px;
@@ -1031,7 +1052,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
   <div class="hero-content wrap">
     <p class="eyebrow hero-eyebrow reveal">From the Royal Kitchens of Lucknow to the World</p>
     <h1 class="hero-title reveal">Royal Taste.<br>Crafted in Lucknow.<br>Loved Across India.</h1>
-    <p class="hero-sub reveal">Authentic Awadhi biryani, prepared with centuries-old recipes and modern excellence — one slow-cooked dum at a time.</p>
+    <p class="hero-sub reveal">Authentic Awadhi Biryani prepared with centuries-old recipes and modern excellence.</p>
     <div class="hero-ctas reveal">
       <a href="#menu" class="btn btn-primary">Explore Menu</a>
       <a href="#franchise" class="btn btn-outline">Become a Franchise</a>
@@ -1258,7 +1279,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
   <div class="wrap franchise-inner">
     <div class="franchise-copy reveal">
       <p class="eyebrow">Franchise With Us</p>
-      <h2>Biryani Franchise in India — Own the Royal Taste of Lucknow</h2>
+      <h2>Own the Royal Taste of Lucknow</h2>
       <p class="franchise-lede">Bring Lucknow&rsquo;s 4.7★-rated biryani house to your city, backed end-to-end by the team that built it.</p>
 
       <div class="franchise-grid">
@@ -1348,12 +1369,12 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
       <h2>Photos & Moments</h2>
     </div>
     <div class="gallery-grid">
-      <div class="g-tile reveal g-tall"><img src="assets/gallery/dining-hall.jpg" alt="Dining hall with chandeliers and golden jaali arches" width="900" height="1200" loading="lazy"><span>The Dining Hall</span></div>
-      <div class="g-tile reveal"><img src="assets/gallery/facade-day.jpg" alt="Biryani Nawaabs facade on Kapoorthala Road with Mughal arch entrance" width="1000" height="667" loading="lazy"><span>Kapoorthala Road Facade</span></div>
-      <div class="g-tile reveal"><img src="assets/gallery/mutton-biryani.jpg" alt="Mutton dum biryani served in a hammered copper handi" width="1000" height="529" loading="lazy"><span>Mutton Dum Biryani</span></div>
-      <div class="g-tile reveal"><img src="assets/gallery/brass-thali.jpg" alt="Brass thali place settings under golden arches in the dining room" width="1000" height="666" loading="lazy"><span>Brass Thali Service</span></div>
-      <div class="g-tile reveal g-tall"><img src="assets/gallery/facade-night.jpg" alt="Biryani Nawaabs storefront glowing at night" width="840" height="1200" loading="lazy"><span>Evenings at Nawaabs</span></div>
-      <div class="g-tile reveal"><img src="assets/gallery/veg-biryani.jpg" alt="Veg dum biryani bowl garnished with cashew, star anise and coriander" width="900" height="900" loading="lazy"><span>Veg Dum Biryani</span></div>
+      <button type="button" class="g-tile reveal g-tall"><img src="assets/gallery/dining-hall.jpg" alt="Dining hall with chandeliers and golden jaali arches" width="900" height="1200" loading="lazy"><span>The Dining Hall</span></button>
+      <button type="button" class="g-tile reveal"><img src="assets/gallery/facade-day.jpg" alt="Biryani Nawaabs facade on Kapoorthala Road with Mughal arch entrance" width="1000" height="667" loading="lazy"><span>Kapoorthala Road Facade</span></button>
+      <button type="button" class="g-tile reveal"><img src="assets/gallery/mutton-biryani.jpg" alt="Mutton dum biryani served in a hammered copper handi" width="1000" height="529" loading="lazy"><span>Mutton Dum Biryani</span></button>
+      <button type="button" class="g-tile reveal"><img src="assets/gallery/brass-thali.jpg" alt="Brass thali place settings under golden arches in the dining room" width="1000" height="666" loading="lazy"><span>Brass Thali Service</span></button>
+      <button type="button" class="g-tile reveal g-tall"><img src="assets/gallery/facade-night.jpg" alt="Biryani Nawaabs storefront glowing at night" width="840" height="1200" loading="lazy"><span>Evenings at Nawaabs</span></button>
+      <button type="button" class="g-tile reveal"><img src="assets/gallery/veg-biryani.jpg" alt="Veg dum biryani bowl garnished with cashew, star anise and coriander" width="900" height="900" loading="lazy"><span>Veg Dum Biryani</span></button>
     </div>
   </div>
 </section>
@@ -1394,7 +1415,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow">Find Us</p>
-      <h2>Outlets Across India</h2>
+      <h2>Our Outlets in Lucknow</h2>
     </div>
     <div class="loc-grid">
       <div class="loc-card reveal">
@@ -1535,6 +1556,12 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:.0
 </footer>
 
 <a class="float-badge" href="https://maps.app.goo.gl/c1W1wtuquGLPeq1t6" target="_blank" rel="noopener" aria-label="4.7 stars, 875+ Google reviews — open our Google profile"><strong>4.7★</strong> 875+ Google Reviews</a>
+
+<dialog class="lightbox" id="lightbox" aria-label="Enlarged gallery photo">
+  <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close enlarged photo">✕</button>
+  <img id="lightboxImg" src="" alt="">
+  <p id="lightboxCaption"></p>
+</dialog>
 
 <!-- ============ STICKY MOBILE CTA ============ -->
 <div class="sticky-cta" id="stickyCta">
@@ -1697,6 +1724,22 @@ tSection.addEventListener('mouseleave', startRotation);
 tSection.addEventListener('focusin', stopRotation);
 tSection.addEventListener('focusout', startRotation);
 startRotation();
+
+// Gallery lightbox (concept doc: "Gallery — Lightbox Effect")
+const lightboxEl = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxCaption = document.getElementById('lightboxCaption');
+document.querySelectorAll('.g-tile').forEach(tile => {
+  tile.addEventListener('click', () => {
+    const img = tile.querySelector('img');
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightboxCaption.textContent = tile.querySelector('span').textContent;
+    lightboxEl.showModal();
+  });
+});
+document.getElementById('lightboxClose').addEventListener('click', () => lightboxEl.close());
+lightboxEl.addEventListener('click', e => { if (e.target === lightboxEl) lightboxEl.close(); });
 
 // Contact + franchise forms (Web3Forms). Until a real access key replaces the
 // placeholder, submissions show a graceful "call or WhatsApp us" fallback.
