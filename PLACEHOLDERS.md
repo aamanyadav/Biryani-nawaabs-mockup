@@ -25,7 +25,6 @@ strings.
 |---|---|---|
 | `YOUR_WEB3FORMS_ACCESS_KEY` (×2) | contact + franchise forms | Free key from <https://web3forms.com> with the destination inbox. Until set, forms show a "call or WhatsApp us" fallback. |
 | `hello@biryaninawaabs.com` / `careers@` | footer, JSON-LD, Careers link | Real email addresses |
-| `facebook.com/biryaninawaabs` | footer | Confirm the handle or remove — Instagram is now the real one (instagram.com/biryaninawaabs.india) |
 | Veg Biryani ₹249, Firni ₹129, Sheermal ₹79 | menu cards | Real prices (menu card page 2 wasn't in the photos) |
 | `FSSAI Lic. No. 00000000000000` | footer | Real licence number (mandatory) |
 | Ashiyana outlet details | locations card | Exact address + closing time ("opens 12 PM" is all Google shows) |
